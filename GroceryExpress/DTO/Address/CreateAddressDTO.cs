@@ -10,7 +10,7 @@ namespace GroceryExpress.API.DTO.Address
         [Required, MaxLength(5)]
         public string Number { get; set; } = null!;
         [MaxLength(5)]
-        public string Box { get; set; } = null!;
+        public string? Box { get; set; }
         [Required, MaxLength(20)]
         public string City { get; set; } = null!;
 

@@ -18,7 +18,7 @@ namespace GroceryExpress.DOMAIN.Entities
         public string Email { get; set; } = null!;
         [MaxLength(20)]
         public string PhoneNumber { get; set; } = null!;
-        public DateTime BirthDate { get; set; }
+        public DateOnly BirthDate { get; set; }
 
         [ForeignKey("Address")]
         public int AddressId { get; set; }

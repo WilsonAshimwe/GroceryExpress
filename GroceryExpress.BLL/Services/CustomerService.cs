@@ -10,7 +10,7 @@ namespace GroceryExpress.BLL.Services
                            string username,
                            string email,
                            string phonenumber,
-                           DateTime birthdate,
+                           DateOnly birthdate,
                            string street,
                            string number,
                            string? box,
@@ -66,6 +66,39 @@ namespace GroceryExpress.BLL.Services
             _customerRepository.Delete(customer);
 
 
+
+        }
+
+        public void Update(int id, 
+                           string firstname, 
+                           string lastname, 
+                           string username, 
+                           string email,
+                           string phonenumber, 
+                           DateOnly birthdate, 
+                           string street,
+                           string number,
+                           string? box,
+                           string city,
+                           int postalcode) {
+
+            Customer? customer = _customerRepository.Find(id);
+            if (customer is null)
+            {
+                throw new KeyNotFoundException($"the customer with {id} cannot be found");
+            };
+
+            customer.FirstName = firstname;
+            customer.LastName = lastname;
+            customer.Username = username;
+            customer.Email = email;
+            customer.PhoneNumber = phonenumber;
+            customer.BirthDate = birthdate;
+            customer.Address.Street = street;
+            customer.Address.Number = number;
+            customer.Address.Box= box;
+            customer.Address.City = city;
+            customer.Address.PostalCode = postalcode;
 
         }
 

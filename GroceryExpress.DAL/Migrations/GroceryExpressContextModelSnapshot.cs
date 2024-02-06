@@ -31,7 +31,6 @@ namespace GroceryExpress.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Box")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
@@ -125,6 +124,24 @@ namespace GroceryExpress.DAL.Migrations
                             Number = "456",
                             PostalCode = 67890,
                             Street = "Oak Avenue"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Box = "A",
+                            City = "Helen City",
+                            Number = "123",
+                            PostalCode = 1234,
+                            Street = "Hight Street"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Box = "BB",
+                            City = "Sampled Town",
+                            Number = "56",
+                            PostalCode = 7890,
+                            Street = "Oakan Avenue"
                         });
                 });
 
@@ -139,8 +156,8 @@ namespace GroceryExpress.DAL.Migrations
                     b.Property<int>("AddressId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("BirthDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -171,97 +188,10 @@ namespace GroceryExpress.DAL.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("Customers");
+                    b.HasIndex("Username")
+                        .IsUnique();
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AddressId = 1,
-                            BirthDate = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "john.doe@example.com",
-                            FirstName = "John",
-                            LastName = "Doe",
-                            PhoneNumber = "123-456-7890",
-                            Username = "johndoe"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AddressId = 2,
-                            BirthDate = new DateTime(1985, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "jane.smith@example.com",
-                            FirstName = "Jane",
-                            LastName = "Smith",
-                            PhoneNumber = "987-654-3210",
-                            Username = "janesmith"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AddressId = 3,
-                            BirthDate = new DateTime(1988, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "alice.johnson@example.com",
-                            FirstName = "Alice",
-                            LastName = "Johnson",
-                            PhoneNumber = "555-123-4567",
-                            Username = "alicejohnson"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AddressId = 4,
-                            BirthDate = new DateTime(1975, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "bob.williams@example.com",
-                            FirstName = "Bob",
-                            LastName = "Williams",
-                            PhoneNumber = "111-222-3333",
-                            Username = "bobwilliams"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AddressId = 5,
-                            BirthDate = new DateTime(1992, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "eva.brown@example.com",
-                            FirstName = "Eva",
-                            LastName = "Brown",
-                            PhoneNumber = "777-888-9999",
-                            Username = "evabrown"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AddressId = 6,
-                            BirthDate = new DateTime(1982, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "david.clark@example.com",
-                            FirstName = "David",
-                            LastName = "Clark",
-                            PhoneNumber = "444-555-6666",
-                            Username = "davidclark"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AddressId = 7,
-                            BirthDate = new DateTime(1995, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "grace.miller@example.com",
-                            FirstName = "Grace",
-                            LastName = "Miller",
-                            PhoneNumber = "999-000-1111",
-                            Username = "gracemiller"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AddressId = 8,
-                            BirthDate = new DateTime(1978, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "sam.anderson@example.com",
-                            FirstName = "Sam",
-                            LastName = "Anderson",
-                            PhoneNumber = "222-333-4444",
-                            Username = "samanderson"
-                        });
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.Deliverer", b =>
@@ -332,7 +262,7 @@ namespace GroceryExpress.DAL.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 3, 14, 55, 43, 553, DateTimeKind.Local).AddTicks(4428));
+                        .HasDefaultValue(new DateTime(2024, 2, 6, 15, 51, 52, 492, DateTimeKind.Local).AddTicks(4884));
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -355,9 +285,6 @@ namespace GroceryExpress.DAL.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CustomerId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("DelivererId")
                         .HasColumnType("int");
 
@@ -371,8 +298,6 @@ namespace GroceryExpress.DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
-
-                    b.HasIndex("CustomerId1");
 
                     b.HasIndex("DelivererId");
 
@@ -411,6 +336,40 @@ namespace GroceryExpress.DAL.Migrations
                     b.HasIndex("AddressId");
 
                     b.ToTable("Shops");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AddressId = 10,
+                            Email = "adam@gmail.com",
+                            Name = "Morrisons",
+                            PhoneNumber = "+32474211252"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AddressId = 11,
+                            Email = "wilson@gmail.com",
+                            Name = "Ada",
+                            PhoneNumber = "+32474211253"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AddressId = 12,
+                            Email = "Stefa@gmail.com",
+                            Name = "Stefa",
+                            PhoneNumber = "+32474211254"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AddressId = 13,
+                            Email = "Stefania@gmail.com",
+                            Name = "Stefania",
+                            PhoneNumber = "+32474211255"
+                        });
                 });
 
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.ShopItem", b =>
@@ -464,14 +423,10 @@ namespace GroceryExpress.DAL.Migrations
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.Order", b =>
                 {
                     b.HasOne("GroceryExpress.DOMAIN.Entities.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.HasOne("GroceryExpress.DOMAIN.Entities.Customer", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("CustomerId1");
 
                     b.HasOne("GroceryExpress.DOMAIN.Entities.Deliverer", "Deliverer")
                         .WithMany()

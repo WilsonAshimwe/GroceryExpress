@@ -15,7 +15,7 @@ namespace GroceryExpress.DAL.Seeders
                 Username = "johndoe",
                 Email = "john.doe@example.com",
                 PhoneNumber = "123-456-7890",
-                BirthDate = new DateTime(1990, 1, 1),
+                BirthDate = new DateOnly(1990, 1, 1),
                 AddressId = 1,
                 //Address=
             //     new Address
@@ -37,7 +37,7 @@ namespace GroceryExpress.DAL.Seeders
                 Username = "janesmith",
                 Email = "jane.smith@example.com",
                 PhoneNumber = "987-654-3210",
-                BirthDate = new DateTime(1985, 5, 15),
+                BirthDate = new DateOnly(1985, 5, 15),
                 AddressId = 2,
             //    Address=  new Address
             //{
@@ -59,7 +59,7 @@ namespace GroceryExpress.DAL.Seeders
                 Username = "alicejohnson",
                 Email = "alice.johnson@example.com",
                 PhoneNumber = "555-123-4567",
-                BirthDate = new DateTime(1988, 8, 20),
+                BirthDate = new DateOnly(1988, 8, 20),
                 AddressId = 3,
             //    Address= new Address
             //{
@@ -81,7 +81,7 @@ namespace GroceryExpress.DAL.Seeders
                 Username = "bobwilliams",
                 Email = "bob.williams@example.com",
                 PhoneNumber = "111-222-3333",
-                BirthDate = new DateTime(1975, 3, 10),
+                BirthDate = new DateOnly(1975, 3, 10),
                 AddressId = 4,
             //    Address =  new Address
             //{
@@ -103,7 +103,7 @@ namespace GroceryExpress.DAL.Seeders
                 Username = "evabrown",
                 Email = "eva.brown@example.com",
                 PhoneNumber = "777-888-9999",
-                BirthDate = new DateTime(1992, 11, 25),
+                BirthDate = new DateOnly(1992, 11, 25),
                 AddressId = 5,
             //     Address=  new Address
             //{
@@ -127,7 +127,7 @@ namespace GroceryExpress.DAL.Seeders
                 Username = "davidclark",
                 Email = "david.clark@example.com",
                 PhoneNumber = "444-555-6666",
-                BirthDate = new DateTime(1982, 7, 5),
+                BirthDate = new DateOnly(1982, 7, 5),
                 AddressId = 6,
             //    Address=    new Address
             //{
@@ -149,7 +149,7 @@ namespace GroceryExpress.DAL.Seeders
                 Username = "gracemiller",
                 Email = "grace.miller@example.com",
                 PhoneNumber = "999-000-1111",
-                BirthDate = new DateTime(1995, 4, 15),
+                BirthDate = new DateOnly(1995, 4, 15),
                 AddressId = 7,
             //    Address= new Address
             //{
@@ -171,7 +171,7 @@ namespace GroceryExpress.DAL.Seeders
                 Username = "samanderson",
                 Email = "sam.anderson@example.com",
                 PhoneNumber = "222-333-4444",
-                BirthDate = new DateTime(1978, 9, 30),
+                BirthDate = new DateOnly(1978, 9, 30),
                 AddressId = 8,
             //    Address= new Address
             //{

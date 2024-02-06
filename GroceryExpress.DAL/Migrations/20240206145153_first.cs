@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -20,7 +21,7 @@ namespace GroceryExpress.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Number = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Box = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Box = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PostalCode = table.Column<int>(type: "int", nullable: false)
                 },
@@ -71,7 +72,7 @@ namespace GroceryExpress.DAL.Migrations
                     Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BirthDate = table.Column<DateOnly>(type: "date", nullable: false),
                     AddressId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -169,7 +170,7 @@ namespace GroceryExpress.DAL.Migrations
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ItemId = table.Column<int>(type: "int", nullable: false),
-                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 2, 3, 14, 55, 43, 553, DateTimeKind.Local).AddTicks(4428)),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 2, 6, 15, 51, 52, 492, DateTimeKind.Local).AddTicks(4884)),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     ItemPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
@@ -202,28 +203,32 @@ namespace GroceryExpress.DAL.Migrations
                     { 5, "D", "Demo Town", "101", 98765, "Pine Lane" },
                     { 6, "D", "Demo Town", "101", 98765, "Pine Lane" },
                     { 7, "C", "Test City", "789", 54321, "Maple Road" },
-                    { 8, "B", "Sample Town", "456", 67890, "Oak Avenue" }
+                    { 8, "B", "Sample Town", "456", 67890, "Oak Avenue" },
+                    { 10, "A", "Helen City", "123", 1234, "Hight Street" },
+                    { 11, "BB", "Sampled Town", "56", 7890, "Oakan Avenue" }
                 });
 
             migrationBuilder.InsertData(
-                table: "Customers",
-                columns: new[] { "Id", "AddressId", "BirthDate", "Email", "FirstName", "LastName", "PhoneNumber", "Username" },
+                table: "Shops",
+                columns: new[] { "Id", "AddressId", "Email", "Name", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "john.doe@example.com", "John", "Doe", "123-456-7890", "johndoe" },
-                    { 2, 2, new DateTime(1985, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "jane.smith@example.com", "Jane", "Smith", "987-654-3210", "janesmith" },
-                    { 3, 3, new DateTime(1988, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "alice.johnson@example.com", "Alice", "Johnson", "555-123-4567", "alicejohnson" },
-                    { 4, 4, new DateTime(1975, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "bob.williams@example.com", "Bob", "Williams", "111-222-3333", "bobwilliams" },
-                    { 5, 5, new DateTime(1992, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "eva.brown@example.com", "Eva", "Brown", "777-888-9999", "evabrown" },
-                    { 6, 6, new DateTime(1982, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "david.clark@example.com", "David", "Clark", "444-555-6666", "davidclark" },
-                    { 7, 7, new DateTime(1995, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "grace.miller@example.com", "Grace", "Miller", "999-000-1111", "gracemiller" },
-                    { 8, 8, new DateTime(1978, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "sam.anderson@example.com", "Sam", "Anderson", "222-333-4444", "samanderson" }
+                    { 3, 12, "Stefa@gmail.com", "Stefa", "+32474211254" },
+                    { 4, 13, "Stefania@gmail.com", "Stefania", "+32474211255" },
+                    { 1, 10, "adam@gmail.com", "Morrisons", "+32474211252" },
+                    { 2, 11, "wilson@gmail.com", "Ada", "+32474211253" }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_AddressId",
                 table: "Customers",
                 column: "AddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_Username",
+                table: "Customers",
+                column: "Username",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_OrderId",

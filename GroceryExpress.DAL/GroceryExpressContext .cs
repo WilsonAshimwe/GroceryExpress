@@ -57,7 +57,7 @@ namespace GroceryExpress.DAL
                       }
                       );
                   entity.HasOne(o => o.Customer)
-                        .WithMany()
+                        .WithMany(c => c.Orders)
                         .HasForeignKey(o => o.CustomerId)
                         .OnDelete(DeleteBehavior.NoAction);
 
@@ -90,12 +90,16 @@ namespace GroceryExpress.DAL
 
                 );
 
+            modelBuilder.Entity<Customer>().HasIndex(u => u.Username).IsUnique();
+
 
             modelBuilder.Entity<Address>()
                 .HasData(CustomerSeed.addresses);
+            modelBuilder.Entity<Address>()
+               .HasData(ShopSeed.addresses);
 
-            modelBuilder.Entity<Customer>()
-                .HasData(CustomerSeed.customers);
+            modelBuilder.Entity<Shop>()
+                .HasData(ShopSeed.shops);
 
 
 

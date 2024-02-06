@@ -1,7 +1,7 @@
 ﻿using GroceryExpress.API.DTO.Address;
 using System.ComponentModel.DataAnnotations;
 
-namespace GroceryExpress.API.DTO.Customer
+namespace GroceryExpress.API.DTO.Customers
 {
     public class CreateCustomerDTO
     {
@@ -16,14 +16,26 @@ namespace GroceryExpress.API.DTO.Customer
         public string Username { get; set; } = null!;
         [MaxLength(50), MinLength(12), Required, EmailAddress]
         public string Email { get; set; } = null!;
-        [MaxLength(20), Required]
+        [Required, RegularExpression(@"^+32\d{8}$")]
         public string PhoneNumber { get; set; } = null!;
 
         [Required]
-        public DateTime BirthDate { get; set; }
+        public DateOnly BirthDate { get; set; }
 
-        [Required]
-        public CreateAddressDTO AddressDTO { get; set; } = null!;
+        [Required, MaxLength(255)]
+        public string Street { get; set; } = null!;
+
+        [Required, MaxLength(5)]
+        public string Number { get; set; } = null!;
+        [MaxLength(5)]
+        public string? Box { get; set; }
+        [Required, MaxLength(20)]
+        public string City { get; set; } = null!;
+
+        [Range(1, 9999)]
+        public int PostalCode { get; set; }
+
+        public string Country { get; } = "Belgium";
 
     }
 }

@@ -1,4 +1,4 @@
-﻿using GroceryExpress.API.DTO.Customer;
+﻿using GroceryExpress.API.DTO.Customers;
 using GroceryExpress.BLL.Services;
 using GroceryExpress.DOMAIN.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -22,11 +22,11 @@ namespace GroceryExpress.API.Controllers
                                              customerDTO.Email,
                                              customerDTO.PhoneNumber,
                                              customerDTO.BirthDate,
-                                             customerDTO.AddressDTO.Street,
-                                             customerDTO.AddressDTO.Number,
-                                             customerDTO.AddressDTO.Box,
-                                             customerDTO.AddressDTO.City,
-                                             customerDTO.AddressDTO.PostalCode
+                                             customerDTO.Street,
+                                             customerDTO.Number,
+                                             customerDTO.Box,
+                                             customerDTO.City,
+                                             customerDTO.PostalCode
 
                 );
 
@@ -39,7 +39,7 @@ namespace GroceryExpress.API.Controllers
 
             try
             {
-                Customer? customer =  _service.Get(id);
+                Customer? customer = _service.Get(id);
                 return Ok(customer);
             }
             catch (KeyNotFoundException ex)
@@ -54,9 +54,9 @@ namespace GroceryExpress.API.Controllers
         public IActionResult Delete(int id) {
             try
             {
-               _service.Delete(id);
+                _service.Delete(id);
                 return Ok();
-               
+
             }
             catch (KeyNotFoundException ex)
             {
@@ -66,6 +66,40 @@ namespace GroceryExpress.API.Controllers
 
 
         }
+
+
+        [HttpPost("{id}")]
+        public IActionResult Update([FromBody] CreateCustomerDTO customerDTO, int id)
+        {
+            try
+            {
+                _service.Update(id,
+                    customerDTO.FirstName,
+                                    customerDTO.LastName,
+                                    customerDTO.Username,
+                                    customerDTO.Email,
+                                    customerDTO.PhoneNumber,
+                                    customerDTO.BirthDate,
+                                    customerDTO.Street,
+                                    customerDTO.Number,
+                                    customerDTO.Box,
+                                    customerDTO.City,
+                                    customerDTO.PostalCode);
+                return Ok();
+
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+
+            }
+
+        }
+
+
+
+
+
 
     }
 }
