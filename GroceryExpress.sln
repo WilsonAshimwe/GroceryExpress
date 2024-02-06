@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryExpress", "GroceryExpress\GroceryExpress.csproj", "{A3FF3A94-76BD-49D1-9D1E-99FD8A9A6DB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryExpress.API", "GroceryExpress\GroceryExpress.API.csproj", "{A3FF3A94-76BD-49D1-9D1E-99FD8A9A6DB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryExpress.DAL", "GroceryExpress.DAL\GroceryExpress.DAL.csproj", "{97F8657C-91A7-4E91-933A-F10ADDCB92FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryExpress.DAL", "GroceryExpress.DAL\GroceryExpress.DAL.csproj", "{97F8657C-91A7-4E91-933A-F10ADDCB92FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryExpress.DOMAIN", "GroceryExpress.DOMAIN\GroceryExpress.DOMAIN.csproj", "{C2D6948C-11AE-4716-A165-EBDAB52FB726}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryExpress.DOMAIN", "GroceryExpress.DOMAIN\GroceryExpress.DOMAIN.csproj", "{C2D6948C-11AE-4716-A165-EBDAB52FB726}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryExpress.BLL", "GroceryExpress.BLL\GroceryExpress.BLL.csproj", "{EB3D86B0-E297-49B4-BE5E-E06A34287211}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryExpress.BLL", "GroceryExpress.BLL\GroceryExpress.BLL.csproj", "{EB3D86B0-E297-49B4-BE5E-E06A34287211}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

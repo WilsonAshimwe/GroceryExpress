@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GroceryExpress.DOMAIN\GroceryExpress.DOMAIN.csproj" />
+  </ItemGroup>
+
 </Project>

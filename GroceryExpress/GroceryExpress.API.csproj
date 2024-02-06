@@ -16,11 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="DTO\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GroceryExpress.BLL\GroceryExpress.BLL.csproj" />
     <ProjectReference Include="..\GroceryExpress.DAL\GroceryExpress.DAL.csproj" />
     <ProjectReference Include="..\GroceryExpress.DOMAIN\GroceryExpress.DOMAIN.csproj" />
