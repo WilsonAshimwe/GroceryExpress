@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GroceryExpress.API.DTO.Address
+namespace GroceryExpress.API.DTO.Addresses
 {
     public class CreateAddressDTO
     {

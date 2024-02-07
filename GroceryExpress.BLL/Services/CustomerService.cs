@@ -1,11 +1,12 @@
 ﻿using GroceryExpress.BLL.Interfaces;
 using GroceryExpress.DOMAIN.Entities;
+using System.Runtime.InteropServices;
 
 namespace GroceryExpress.BLL.Services
 {
-    public class CustomerService(ICustomerRepository _customerRepository)
+    public class UserService(IUserRepository _userRepository)
     {
-        public Customer Add(string firstname,
+        public async Task<User> Add(string firstname,
                            string lastname,
                            string username,
                            string email,
@@ -29,9 +30,9 @@ namespace GroceryExpress.BLL.Services
 
             };
 
-            return _customerRepository.Add(
+            return await _userRepository.Add(
 
-                new Customer()
+                new User()
                 {
                     FirstName = firstname,
                     LastName = lastname,
@@ -46,30 +47,45 @@ namespace GroceryExpress.BLL.Services
 
         }
 
-        public Customer? Get(int id)
+        public async Task<User> Get(int id)
         {
-            Customer? customer= _customerRepository.Find(id);
-            if (customer == null)
+            User? user= await _userRepository.Find(id);
+            if (user == null)
             {
-                throw new KeyNotFoundException($"There is not customer with id {id}");
+                throw new KeyNotFoundException($"There is not user with id {id}");
             }
-            return customer;
+            return user;
+        }     
+        
+        public async Task<List<User>> GetAll()
+        {
+            return await _userRepository.FindAll();
+        }    
+        
+        public async Task<User> GetWithAddress(int id)
+        {
+            User? user= await _userRepository.FindWithAddress(id);
+            if (user == null)
+            {
+                throw new KeyNotFoundException($"There is not user with id {id}");
+            }
+            return user;
         }
 
-        public void Delete(int id) {
+        public async Task Delete(int id) {
 
-            Customer? customer = _customerRepository.Find(id);
-            if (customer == null)
+            User? user = await _userRepository.Find(id);
+            if (user == null)
             {
-                throw new KeyNotFoundException($"There is not customer with id {id}");
+                throw new KeyNotFoundException($"There is not user with id {id}");
             }
-            _customerRepository.Delete(customer);
+            await _userRepository.Delete(user);
 
 
 
         }
 
-        public void Update(int id, 
+        public async Task<User> Update(int id, 
                            string firstname, 
                            string lastname, 
                            string username, 
@@ -82,25 +98,28 @@ namespace GroceryExpress.BLL.Services
                            string city,
                            int postalcode) {
 
-            Customer? customer = _customerRepository.Find(id);
-            if (customer is null)
+            User? user = await _userRepository.Find(id);
+            if (user is null)
             {
-                throw new KeyNotFoundException($"the customer with {id} cannot be found");
+                throw new KeyNotFoundException($"the user with {id} cannot be found");
             };
 
-            customer.FirstName = firstname;
-            customer.LastName = lastname;
-            customer.Username = username;
-            customer.Email = email;
-            customer.PhoneNumber = phonenumber;
-            customer.BirthDate = birthdate;
-            customer.Address.Street = street;
-            customer.Address.Number = number;
-            customer.Address.Box= box;
-            customer.Address.City = city;
-            customer.Address.PostalCode = postalcode;
+            user.FirstName = firstname;
+            user.LastName = lastname;
+            user.Username = username;
+            user.Email = email;
+            user.PhoneNumber = phonenumber;
+            user.BirthDate = birthdate;
+            user.Address.Street = street;
+            user.Address.Number = number;
+            user.Address.Box= box;
+            user.Address.City = city;
+            user.Address.PostalCode = postalcode;
+
+            return user;
 
         }
+
 
     }
 }

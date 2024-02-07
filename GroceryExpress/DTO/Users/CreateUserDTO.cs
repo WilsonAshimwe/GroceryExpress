@@ -1,9 +1,9 @@
-﻿using GroceryExpress.API.DTO.Address;
+﻿using GroceryExpress.API.DTO.Addresses;
 using System.ComponentModel.DataAnnotations;
 
-namespace GroceryExpress.API.DTO.Customers
+namespace GroceryExpress.API.DTO.Users
 {
-    public class CreateCustomerDTO
+    public class CreateUserDTO
     {
 
         [MaxLength(50), MinLength(2), Required]

@@ -62,31 +62,6 @@ namespace GroceryExpress.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Customers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    BirthDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    AddressId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Customers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Customers_Addresses_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Addresses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Shops",
                 columns: table => new
                 {
@@ -109,34 +84,29 @@ namespace GroceryExpress.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CustomerId = table.Column<int>(type: "int", nullable: false),
-                    ShopId = table.Column<int>(type: "int", nullable: false),
-                    DelivererId = table.Column<int>(type: "int", nullable: false)
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    BirthDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    AddressId = table.Column<int>(type: "int", nullable: false),
+                    Role = table.Column<string>(type: "VARCHAR(10)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Orders_Deliverers_DelivererId",
-                        column: x => x.DelivererId,
-                        principalTable: "Deliverers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Orders_Shops_ShopId",
-                        column: x => x.ShopId,
-                        principalTable: "Shops",
-                        principalColumn: "Id");
+                        name: "FK_Users_Addresses_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -165,12 +135,43 @@ namespace GroceryExpress.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ShopId = table.Column<int>(type: "int", nullable: false),
+                    DelivererId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_Deliverers_DelivererId",
+                        column: x => x.DelivererId,
+                        principalTable: "Deliverers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Orders_Shops_ShopId",
+                        column: x => x.ShopId,
+                        principalTable: "Shops",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Orders_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "OrderItems",
                 columns: table => new
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ItemId = table.Column<int>(type: "int", nullable: false),
-                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 2, 6, 15, 51, 52, 492, DateTimeKind.Local).AddTicks(4884)),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 2, 7, 14, 52, 46, 778, DateTimeKind.Local).AddTicks(9825)),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     ItemPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
@@ -204,8 +205,10 @@ namespace GroceryExpress.DAL.Migrations
                     { 6, "D", "Demo Town", "101", 98765, "Pine Lane" },
                     { 7, "C", "Test City", "789", 54321, "Maple Road" },
                     { 8, "B", "Sample Town", "456", 67890, "Oak Avenue" },
-                    { 10, "A", "Helen City", "123", 1234, "Hight Street" },
-                    { 11, "BB", "Sampled Town", "56", 7890, "Oakan Avenue" }
+                    { 9, "A", "Anytown", "123", 12345, "Main Street" },
+                    { 10, "B", "Springfield", "456", 67890, "Elm Street" },
+                    { 11, "C", "Smallville", "789", 24680, "Oak Avenue" },
+                    { 12, "D", "Lakeside", "101", 13579, "Pine Road" }
                 });
 
             migrationBuilder.InsertData(
@@ -213,32 +216,31 @@ namespace GroceryExpress.DAL.Migrations
                 columns: new[] { "Id", "AddressId", "Email", "Name", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { 3, 12, "Stefa@gmail.com", "Stefa", "+32474211254" },
-                    { 4, 13, "Stefania@gmail.com", "Stefania", "+32474211255" },
-                    { 1, 10, "adam@gmail.com", "Morrisons", "+32474211252" },
-                    { 2, 11, "wilson@gmail.com", "Ada", "+32474211253" }
+                    { 1, 9, "adam@gmail.com", "Morrisons", "+32474211252" },
+                    { 2, 10, "wilson@gmail.com", "Ada", "+32474211253" },
+                    { 3, 11, "Stefa@gmail.com", "Stefa", "+32474211254" },
+                    { 4, 12, "Stefania@gmail.com", "Stefania", "+32474211255" }
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Customers_AddressId",
-                table: "Customers",
-                column: "AddressId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Customers_Username",
-                table: "Customers",
-                column: "Username",
-                unique: true);
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "AddressId", "BirthDate", "Email", "FirstName", "LastName", "PhoneNumber", "Role", "Username" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateOnly(1990, 1, 1), "john.doe@example.com", "John", "Doe", "123-456-7890", "Customer", "johndoe" },
+                    { 2, 2, new DateOnly(1985, 5, 15), "jane.smith@example.com", "Jane", "Smith", "987-654-3210", "Customer", "janesmith" },
+                    { 3, 3, new DateOnly(1988, 8, 20), "alice.johnson@example.com", "Alice", "Johnson", "555-123-4567", "Customer", "alicejohnson" },
+                    { 4, 4, new DateOnly(1975, 3, 10), "bob.williams@example.com", "Bob", "Williams", "111-222-3333", "Customer", "bobwilliams" },
+                    { 5, 5, new DateOnly(1992, 11, 25), "eva.brown@example.com", "Eva", "Brown", "777-888-9999", "Customer", "evabrown" },
+                    { 6, 6, new DateOnly(1982, 7, 5), "david.clark@example.com", "David", "Clark", "444-555-6666", "Customer", "davidclark" },
+                    { 7, 7, new DateOnly(1995, 4, 15), "grace.miller@example.com", "Grace", "Miller", "999-000-1111", "Customer", "gracemiller" },
+                    { 8, 8, new DateOnly(1978, 9, 30), "sam.anderson@example.com", "Sam", "Anderson", "222-333-4444", "Customer", "samanderson" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_OrderId",
                 table: "OrderItems",
                 column: "OrderId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_CustomerId",
-                table: "Orders",
-                column: "CustomerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_DelivererId",
@@ -256,6 +258,11 @@ namespace GroceryExpress.DAL.Migrations
                 column: "ShopId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_UserId",
+                table: "Orders",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ShopItems_ShopId",
                 table: "ShopItems",
                 column: "ShopId");
@@ -264,6 +271,17 @@ namespace GroceryExpress.DAL.Migrations
                 name: "IX_Shops_AddressId",
                 table: "Shops",
                 column: "AddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_AddressId",
+                table: "Users",
+                column: "AddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Username",
+                table: "Users",
+                column: "Username",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -282,13 +300,13 @@ namespace GroceryExpress.DAL.Migrations
                 name: "Items");
 
             migrationBuilder.DropTable(
-                name: "Customers");
-
-            migrationBuilder.DropTable(
                 name: "Deliverers");
 
             migrationBuilder.DropTable(
                 name: "Shops");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Addresses");

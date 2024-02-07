@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GroceryExpress.DOMAIN.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GroceryExpress.DOMAIN.Entities
 {
-    public class Customer
+    public class User
     {
         public int Id { get; set; }
         [MaxLength(50), MinLength(2)]
@@ -25,6 +26,9 @@ namespace GroceryExpress.DOMAIN.Entities
         public Address Address { get; set; } = null!;
 
         public ICollection<Order> Orders { get; set; }
+
+        [Column(TypeName = "VARCHAR(10)")]
+        public RoleEnum Role { get; set; } = RoleEnum.Customer;
 
 
 

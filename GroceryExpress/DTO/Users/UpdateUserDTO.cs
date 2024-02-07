@@ -1,24 +1,24 @@
 ﻿using GroceryExpress.DOMAIN.Entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace GroceryExpress.API.DTO.Customers
+namespace GroceryExpress.API.DTO.Users
 {
-    public class UpdateCustomerDTO
+    public class UpdateUserDTO
     {
-        public UpdateCustomerDTO(Customer customer)
+        public UpdateUserDTO(User user)
         {
-            this.FirstName = customer.FirstName;
-            this.LastName = customer.LastName;
-            this.Username = customer.Username;
-            this.Email = customer.Email;
-            this.PhoneNumber = customer.PhoneNumber;
-            this.BirthDate = customer.BirthDate;
-            this.Street = customer.Address.Street;
-            this.Number = customer.Address.Number;
-            this.Box = customer.Address.Box;
-            this.City = customer.Address.City;
-            this.PostalCode = customer.Address.PostalCode;  
-            this.Country = customer.Address.Country;
+            this.FirstName = user.FirstName;
+            this.LastName = user.LastName;
+            this.Username = user.Username;
+            this.Email = user.Email;
+            this.PhoneNumber = user.PhoneNumber;
+            this.BirthDate = user.BirthDate;
+            this.Street = user.Address.Street;
+            this.Number = user.Address.Number;
+            this.Box = user.Address.Box;
+            this.City = user.Address.City;
+            this.PostalCode = user.Address.PostalCode;  
+            this.Country = user.Address.Country;
 
 
             

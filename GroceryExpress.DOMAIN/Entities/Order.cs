@@ -8,9 +8,9 @@ namespace GroceryExpress.DOMAIN.Entities
         public int Id { get; set; }
         public string Name { get; set; } = null!;
 
-        public int CustomerId { get; set; }
+        public int UserId { get; set; }
 
-        public Customer Customer { get; set; }
+        public User User { get; set; }
 
         public ICollection<Item> Items { get; set; }
 

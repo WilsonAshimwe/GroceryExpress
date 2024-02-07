@@ -53,10 +53,10 @@ namespace GroceryExpress.DAL.Seeders
 
         public static List<Address> addresses = new List<Address>()
         {
-            new Address { Id = 9, Street = "Main Street", Number = "123", Box = null, City = "Anytown", PostalCode = 12345 },
-            new Address { Id = 10, Street = "Elm Street", Number = "456", Box = null, City = "Springfield", PostalCode = 67890 },
-            new Address { Id = 11, Street = "Oak Avenue", Number = "789", Box = null, City = "Smallville", PostalCode = 24680 },
-            new Address { Id = 12, Street = "Pine Road", Number = "101", Box = null, City = "Lakeside", PostalCode = 13579  },
+            new Address { Id = 9, Street = "Main Street", Number = "123", Box = "A", City = "Anytown", PostalCode = 12345 },
+            new Address { Id = 10, Street = "Elm Street", Number = "456", Box = "B", City = "Springfield", PostalCode = 67890 },
+            new Address { Id = 11, Street = "Oak Avenue", Number = "789", Box = "C", City = "Smallville", PostalCode = 24680 },
+            new Address { Id = 12, Street = "Pine Road", Number = "101", Box = "D", City = "Lakeside", PostalCode = 13579  },
         };
 
     }

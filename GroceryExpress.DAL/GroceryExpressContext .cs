@@ -9,7 +9,7 @@ namespace GroceryExpress.DAL
     public class GroceryExpressContext : DbContext
     {
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }
 
         public DbSet<Item> Items { get; set; }
@@ -56,9 +56,9 @@ namespace GroceryExpress.DAL
                           itemOrder.Property(o => o.ItemPrice).HasColumnType("decimal(18,2)");
                       }
                       );
-                  entity.HasOne(o => o.Customer)
+                  entity.HasOne(o => o.User)
                         .WithMany(c => c.Orders)
-                        .HasForeignKey(o => o.CustomerId)
+                        .HasForeignKey(o => o.UserId)
                         .OnDelete(DeleteBehavior.NoAction);
 
                   entity.HasOne(o => o.Shop)
@@ -90,16 +90,18 @@ namespace GroceryExpress.DAL
 
                 );
 
-            modelBuilder.Entity<Customer>().HasIndex(u => u.Username).IsUnique();
+            modelBuilder.Entity<User>().HasIndex(u => u.Username).IsUnique();
 
 
             modelBuilder.Entity<Address>()
-                .HasData(CustomerSeed.addresses);
+                .HasData(UserSeed.addresses);
             modelBuilder.Entity<Address>()
                .HasData(ShopSeed.addresses);
 
             modelBuilder.Entity<Shop>()
                 .HasData(ShopSeed.shops);
+            modelBuilder.Entity<User>() 
+                .HasData(UserSeed.users);
 
 
 
