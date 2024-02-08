@@ -4,6 +4,7 @@ using GroceryExpress.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GroceryExpress.DAL.Migrations
 {
     [DbContext(typeof(GroceryExpressContext))]
-    partial class GroceryExpressContextModelSnapshot : ModelSnapshot
+    [Migration("20240208132302_first")]
+    partial class first
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -164,9 +167,6 @@ namespace GroceryExpress.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateOnly>("AddedDate")
-                        .HasColumnType("date");
-
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -194,7 +194,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "Fruits",
                             Description = "Fresh and juicy",
                             ItemImageUrl = "https://example.com/apple_image.jpg",
@@ -204,7 +203,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 2,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "Fruits",
                             Description = "Ripe and sweet",
                             ItemImageUrl = "https://example.com/banana_image.jpg",
@@ -214,7 +212,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 3,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "Dairy",
                             Description = "Whole milk",
                             ItemImageUrl = "https://example.com/milk_image.jpg",
@@ -224,7 +221,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 4,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "Bakery",
                             Description = "Whole wheat bread",
                             ItemImageUrl = "https://example.com/bread_image.jpg",
@@ -234,7 +230,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 5,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "Meat",
                             Description = "Boneless skinless chicken breast",
                             ItemImageUrl = "https://example.com/chicken_image.jpg",
@@ -244,7 +239,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 6,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "Vegetables",
                             Description = "Fresh organic spinach",
                             ItemImageUrl = "https://example.com/spinach_image.jpg",
@@ -254,7 +248,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 7,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "Dairy",
                             Description = "Low-fat yogurt",
                             ItemImageUrl = "https://example.com/yogurt_image.jpg",
@@ -264,7 +257,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 8,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "Other",
                             Description = "Large brown eggs",
                             ItemImageUrl = "https://example.com/eggs_image.jpg",
@@ -274,7 +266,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 9,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "Beverages",
                             Description = "100% pure orange juice",
                             ItemImageUrl = "https://example.com/orangejuice_image.jpg",
@@ -284,7 +275,6 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 10,
-                            AddedDate = new DateOnly(2024, 2, 8),
                             Category = "SweetFood",
                             Description = "Milk chocolate bar",
                             ItemImageUrl = "https://example.com/chocolate_image.jpg",

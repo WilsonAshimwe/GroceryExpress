@@ -17,11 +17,11 @@ namespace GroceryExpress.API.DTO.Users
             this.Number = user.Address.Number;
             this.Box = user.Address.Box;
             this.City = user.Address.City;
-            this.PostalCode = user.Address.PostalCode;  
+            this.PostalCode = user.Address.PostalCode;
             this.Country = user.Address.Country;
 
 
-            
+
         }
 
         [MaxLength(50), MinLength(2), Required]

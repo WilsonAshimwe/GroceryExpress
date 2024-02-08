@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace GroceryExpress.DOMAIN.Entities
 {
@@ -15,7 +10,7 @@ namespace GroceryExpress.DOMAIN.Entities
 
         public string Phone { get; set; } = null!;
 
-        public string VehicleType { get; set; } = null!; 
+        public string VehicleType { get; set; } = null!;
 
         public string City { get; set; } = null!;
     }

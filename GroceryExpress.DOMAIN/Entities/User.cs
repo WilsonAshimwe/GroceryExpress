@@ -30,6 +30,10 @@ namespace GroceryExpress.DOMAIN.Entities
         [Column(TypeName = "VARCHAR(10)")]
         public RoleEnum Role { get; set; } = RoleEnum.Customer;
 
+        public User()
+        {
+            Orders = new HashSet<Order>();
+        }
 
 
     }

@@ -1,5 +1,4 @@
-﻿using GroceryExpress.API.DTO.Addresses;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace GroceryExpress.API.DTO.Users
 {

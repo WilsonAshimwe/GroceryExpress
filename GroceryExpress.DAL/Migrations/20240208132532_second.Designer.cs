@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GroceryExpress.DAL.Migrations
 {
     [DbContext(typeof(GroceryExpressContext))]
-    [Migration("20240207135247_first")]
-    partial class first
+    [Migration("20240208132532_second")]
+    partial class second
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,42 +127,6 @@ namespace GroceryExpress.DAL.Migrations
                             Number = "456",
                             PostalCode = 67890,
                             Street = "Oak Avenue"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Box = "A",
-                            City = "Anytown",
-                            Number = "123",
-                            PostalCode = 12345,
-                            Street = "Main Street"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Box = "B",
-                            City = "Springfield",
-                            Number = "456",
-                            PostalCode = 67890,
-                            Street = "Elm Street"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Box = "C",
-                            City = "Smallville",
-                            Number = "789",
-                            PostalCode = 24680,
-                            Street = "Oak Avenue"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Box = "D",
-                            City = "Lakeside",
-                            Number = "101",
-                            PostalCode = 13579,
-                            Street = "Pine Road"
                         });
                 });
 
@@ -203,6 +167,9 @@ namespace GroceryExpress.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateOnly>("AddedDate")
+                        .HasColumnType("date");
+
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -211,13 +178,122 @@ namespace GroceryExpress.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ItemImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(5, 2)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Items");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "Fruits",
+                            Description = "Fresh and juicy",
+                            ItemImageUrl = "https://example.com/apple_image.jpg",
+                            Name = "Apple",
+                            Price = 1.99m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "Fruits",
+                            Description = "Ripe and sweet",
+                            ItemImageUrl = "https://example.com/banana_image.jpg",
+                            Name = "Banana",
+                            Price = 0.99m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "Dairy",
+                            Description = "Whole milk",
+                            ItemImageUrl = "https://example.com/milk_image.jpg",
+                            Name = "Milk",
+                            Price = 2.49m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "Bakery",
+                            Description = "Whole wheat bread",
+                            ItemImageUrl = "https://example.com/bread_image.jpg",
+                            Name = "Bread",
+                            Price = 2.29m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "Meat",
+                            Description = "Boneless skinless chicken breast",
+                            ItemImageUrl = "https://example.com/chicken_image.jpg",
+                            Name = "Chicken",
+                            Price = 4.99m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "Vegetables",
+                            Description = "Fresh organic spinach",
+                            ItemImageUrl = "https://example.com/spinach_image.jpg",
+                            Name = "Spinach",
+                            Price = 1.49m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "Dairy",
+                            Description = "Low-fat yogurt",
+                            ItemImageUrl = "https://example.com/yogurt_image.jpg",
+                            Name = "Yogurt",
+                            Price = 1.79m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "Other",
+                            Description = "Large brown eggs",
+                            ItemImageUrl = "https://example.com/eggs_image.jpg",
+                            Name = "Eggs",
+                            Price = 2.99m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "Beverages",
+                            Description = "100% pure orange juice",
+                            ItemImageUrl = "https://example.com/orangejuice_image.jpg",
+                            Name = "Orange Juice",
+                            Price = 3.49m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AddedDate = new DateOnly(2024, 2, 8),
+                            Category = "SweetFood",
+                            Description = "Milk chocolate bar",
+                            ItemImageUrl = "https://example.com/chocolate_image.jpg",
+                            Name = "Chocolate",
+                            Price = 1.29m
+                        });
                 });
 
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.ItemOrder", b =>
@@ -230,11 +306,6 @@ namespace GroceryExpress.DAL.Migrations
 
                     b.Property<decimal>("ItemPrice")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("OrderDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 14, 52, 46, 778, DateTimeKind.Local).AddTicks(9825));
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -257,12 +328,8 @@ namespace GroceryExpress.DAL.Migrations
                     b.Property<int>("DelivererId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ShopId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -271,95 +338,11 @@ namespace GroceryExpress.DAL.Migrations
 
                     b.HasIndex("DelivererId");
 
-                    b.HasIndex("Name");
-
-                    b.HasIndex("ShopId");
+                    b.HasIndex("OrderDate");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.Shop", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddressId");
-
-                    b.ToTable("Shops");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AddressId = 9,
-                            Email = "adam@gmail.com",
-                            Name = "Morrisons",
-                            PhoneNumber = "+32474211252"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AddressId = 10,
-                            Email = "wilson@gmail.com",
-                            Name = "Ada",
-                            PhoneNumber = "+32474211253"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AddressId = 11,
-                            Email = "Stefa@gmail.com",
-                            Name = "Stefa",
-                            PhoneNumber = "+32474211254"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AddressId = 12,
-                            Email = "Stefania@gmail.com",
-                            Name = "Stefania",
-                            PhoneNumber = "+32474211255"
-                        });
-                });
-
-            modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.ShopItem", b =>
-                {
-                    b.Property<int>("ItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ShopId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.HasKey("ItemId", "ShopId");
-
-                    b.HasIndex("ShopId");
-
-                    b.ToTable("ShopItems");
                 });
 
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.User", b =>
@@ -540,12 +523,6 @@ namespace GroceryExpress.DAL.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("GroceryExpress.DOMAIN.Entities.Shop", "Shop")
-                        .WithMany()
-                        .HasForeignKey("ShopId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("GroceryExpress.DOMAIN.Entities.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
@@ -554,39 +531,7 @@ namespace GroceryExpress.DAL.Migrations
 
                     b.Navigation("Deliverer");
 
-                    b.Navigation("Shop");
-
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.Shop", b =>
-                {
-                    b.HasOne("GroceryExpress.DOMAIN.Entities.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
-                });
-
-            modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.ShopItem", b =>
-                {
-                    b.HasOne("GroceryExpress.DOMAIN.Entities.Item", "Item")
-                        .WithMany()
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GroceryExpress.DOMAIN.Entities.Shop", "Shop")
-                        .WithMany()
-                        .HasForeignKey("ShopId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Item");
-
-                    b.Navigation("Shop");
                 });
 
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.User", b =>

@@ -1,7 +1,7 @@
 ﻿namespace GroceryExpress.Domain.Enums
 {
-   
-        public enum GroceryCategory
+
+    public enum GroceryCategory
     {
         Cerials,
         SweetFood,

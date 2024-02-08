@@ -2,12 +2,12 @@
 
 namespace GroceryExpress.API.Profiles
 {
-    public class DTOToDomain: Profile
+    public class DTOToDomain : Profile
     {
         public DTOToDomain()
         {
 
-            
+
         }
     }
 }

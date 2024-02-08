@@ -54,33 +54,13 @@ namespace GroceryExpress.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Category = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ItemImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Items", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Shops",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AddressId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Shops", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Shops_Addresses_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Addresses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -110,40 +90,14 @@ namespace GroceryExpress.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ShopItems",
-                columns: table => new
-                {
-                    ItemId = table.Column<int>(type: "int", nullable: false),
-                    ShopId = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ShopItems", x => new { x.ItemId, x.ShopId });
-                    table.ForeignKey(
-                        name: "FK_ShopItems_Items_ItemId",
-                        column: x => x.ItemId,
-                        principalTable: "Items",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ShopItems_Shops_ShopId",
-                        column: x => x.ShopId,
-                        principalTable: "Shops",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    ShopId = table.Column<int>(type: "int", nullable: false),
-                    DelivererId = table.Column<int>(type: "int", nullable: false)
+                    DelivererId = table.Column<int>(type: "int", nullable: false),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -152,11 +106,6 @@ namespace GroceryExpress.DAL.Migrations
                         name: "FK_Orders_Deliverers_DelivererId",
                         column: x => x.DelivererId,
                         principalTable: "Deliverers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Orders_Shops_ShopId",
-                        column: x => x.ShopId,
-                        principalTable: "Shops",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Orders_Users_UserId",
@@ -171,7 +120,6 @@ namespace GroceryExpress.DAL.Migrations
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ItemId = table.Column<int>(type: "int", nullable: false),
-                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 2, 7, 14, 52, 46, 778, DateTimeKind.Local).AddTicks(9825)),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     ItemPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
@@ -204,22 +152,24 @@ namespace GroceryExpress.DAL.Migrations
                     { 5, "D", "Demo Town", "101", 98765, "Pine Lane" },
                     { 6, "D", "Demo Town", "101", 98765, "Pine Lane" },
                     { 7, "C", "Test City", "789", 54321, "Maple Road" },
-                    { 8, "B", "Sample Town", "456", 67890, "Oak Avenue" },
-                    { 9, "A", "Anytown", "123", 12345, "Main Street" },
-                    { 10, "B", "Springfield", "456", 67890, "Elm Street" },
-                    { 11, "C", "Smallville", "789", 24680, "Oak Avenue" },
-                    { 12, "D", "Lakeside", "101", 13579, "Pine Road" }
+                    { 8, "B", "Sample Town", "456", 67890, "Oak Avenue" }
                 });
 
             migrationBuilder.InsertData(
-                table: "Shops",
-                columns: new[] { "Id", "AddressId", "Email", "Name", "PhoneNumber" },
+                table: "Items",
+                columns: new[] { "Id", "Category", "Description", "ItemImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, 9, "adam@gmail.com", "Morrisons", "+32474211252" },
-                    { 2, 10, "wilson@gmail.com", "Ada", "+32474211253" },
-                    { 3, 11, "Stefa@gmail.com", "Stefa", "+32474211254" },
-                    { 4, 12, "Stefania@gmail.com", "Stefania", "+32474211255" }
+                    { 1, "Fruits", "Fresh and juicy", "https://example.com/apple_image.jpg", "Apple", 1.99m },
+                    { 2, "Fruits", "Ripe and sweet", "https://example.com/banana_image.jpg", "Banana", 0.99m },
+                    { 3, "Dairy", "Whole milk", "https://example.com/milk_image.jpg", "Milk", 2.49m },
+                    { 4, "Bakery", "Whole wheat bread", "https://example.com/bread_image.jpg", "Bread", 2.29m },
+                    { 5, "Meat", "Boneless skinless chicken breast", "https://example.com/chicken_image.jpg", "Chicken", 4.99m },
+                    { 6, "Vegetables", "Fresh organic spinach", "https://example.com/spinach_image.jpg", "Spinach", 1.49m },
+                    { 7, "Dairy", "Low-fat yogurt", "https://example.com/yogurt_image.jpg", "Yogurt", 1.79m },
+                    { 8, "Other", "Large brown eggs", "https://example.com/eggs_image.jpg", "Eggs", 2.99m },
+                    { 9, "Beverages", "100% pure orange juice", "https://example.com/orangejuice_image.jpg", "Orange Juice", 3.49m },
+                    { 10, "SweetFood", "Milk chocolate bar", "https://example.com/chocolate_image.jpg", "Chocolate", 1.29m }
                 });
 
             migrationBuilder.InsertData(
@@ -248,29 +198,14 @@ namespace GroceryExpress.DAL.Migrations
                 column: "DelivererId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_Name",
+                name: "IX_Orders_OrderDate",
                 table: "Orders",
-                column: "Name");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_ShopId",
-                table: "Orders",
-                column: "ShopId");
+                column: "OrderDate");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_UserId",
                 table: "Orders",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ShopItems_ShopId",
-                table: "ShopItems",
-                column: "ShopId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Shops_AddressId",
-                table: "Shops",
-                column: "AddressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_AddressId",
@@ -291,19 +226,13 @@ namespace GroceryExpress.DAL.Migrations
                 name: "OrderItems");
 
             migrationBuilder.DropTable(
-                name: "ShopItems");
+                name: "Items");
 
             migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Items");
-
-            migrationBuilder.DropTable(
                 name: "Deliverers");
-
-            migrationBuilder.DropTable(
-                name: "Shops");
 
             migrationBuilder.DropTable(
                 name: "Users");

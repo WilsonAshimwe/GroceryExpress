@@ -15,8 +15,6 @@ namespace GroceryExpress.DAL
         public DbSet<Item> Items { get; set; }
 
         public DbSet<Deliverer> Deliverers { get; set; }
-        public DbSet<Shop> Shops { get; set; }
-        public DbSet<ShopItem> ShopItems { get; set; }
 
 
 
@@ -38,7 +36,7 @@ namespace GroceryExpress.DAL
               entity =>
               {
                   entity.HasKey(e => e.Id);
-                  entity.HasIndex(e => e.Name);
+                  entity.HasIndex(e => e.OrderDate);
                   entity.HasMany(e => e.Items)
                    .WithMany(e => e.Orders)
                    .UsingEntity<ItemOrder>(
@@ -51,8 +49,6 @@ namespace GroceryExpress.DAL
                                    .WithMany()
                                    .HasForeignKey(io => io.OrderId);
                           itemOrder.HasKey(io => new { io.ItemId, io.OrderId });
-                          itemOrder.Property(io => io.OrderDate)
-                                    .HasDefaultValue(DateTime.Now);
                           itemOrder.Property(o => o.ItemPrice).HasColumnType("decimal(18,2)");
                       }
                       );
@@ -61,47 +57,26 @@ namespace GroceryExpress.DAL
                         .HasForeignKey(o => o.UserId)
                         .OnDelete(DeleteBehavior.NoAction);
 
-                  entity.HasOne(o => o.Shop)
-                         .WithMany()
-                         .HasForeignKey(o => o.ShopId)
-                         .OnDelete(DeleteBehavior.NoAction);
-
                   entity.HasOne(o => o.Deliverer)
                       .WithMany()
                       .HasForeignKey(o => o.DelivererId)
                       .OnDelete(DeleteBehavior.NoAction);
+
+
               }
-
-                );
-
-
-            modelBuilder.Entity<Shop>()
-                .HasMany(s => s.Items)
-                .WithMany(i => i.Shops)
-                .UsingEntity<ShopItem>(
-
-                shopItem =>
-                {
-                    shopItem.HasOne(s => s.Shop).WithMany().HasForeignKey(s => s.ShopId);
-                    shopItem.HasOne(s => s.Item).WithMany().HasForeignKey(s => s.ItemId);
-                    shopItem.HasKey(io => new { io.ItemId, io.ShopId });
-
-                }
 
                 );
 
             modelBuilder.Entity<User>().HasIndex(u => u.Username).IsUnique();
 
 
+
             modelBuilder.Entity<Address>()
                 .HasData(UserSeed.addresses);
-            modelBuilder.Entity<Address>()
-               .HasData(ShopSeed.addresses);
-
-            modelBuilder.Entity<Shop>()
-                .HasData(ShopSeed.shops);
-            modelBuilder.Entity<User>() 
+            modelBuilder.Entity<User>()
                 .HasData(UserSeed.users);
+            modelBuilder.Entity<Item>()
+            .HasData(ItemSeed.Items);
 
 
 

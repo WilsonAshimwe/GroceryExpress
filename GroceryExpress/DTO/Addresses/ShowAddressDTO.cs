@@ -1,8 +1,4 @@
-﻿using GroceryExpress.DOMAIN.Entities;
-using System.ComponentModel.DataAnnotations;
-
-
-namespace GroceryExpress.API.DTO.Addresses
+﻿namespace GroceryExpress.API.DTO.Addresses
 {
     public class ShowAddressDTO
     {

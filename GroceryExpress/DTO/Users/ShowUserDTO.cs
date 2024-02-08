@@ -1,12 +1,10 @@
 ﻿using GroceryExpress.API.DTO.Addresses;
-using GroceryExpress.DOMAIN.Entities;
-using System.ComponentModel.DataAnnotations;
 
 namespace GroceryExpress.API.DTO.Users
 {
     public class ShowUserDTO
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public string FirstName { get; set; } = null!;
 
         public string LastName { get; set; } = null!;

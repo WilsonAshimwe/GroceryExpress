@@ -2,16 +2,13 @@
 using GroceryExpress.API.DTO.Users;
 using GroceryExpress.BLL.Services;
 using GroceryExpress.DOMAIN.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.InteropServices;
-using System.Security.Claims;
 
 namespace GroceryExpress.API.Controllers
 {
-    [Route("api/users")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class UserController(UserService _service, IMapper mapper) : ControllerBase
+    public class UsersController(UserService _service, IMapper mapper) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<List<User>>> GetAll()
@@ -48,7 +45,7 @@ namespace GroceryExpress.API.Controllers
 
         [HttpGet("{id}")]
         // [Authorize]
-        public async Task<ActionResult<User?>> Get([FromRoute]int id, bool includeAddress)
+        public async Task<ActionResult<User?>> Get([FromRoute] int id, bool includeAddress)
         {
             try
             {
@@ -58,17 +55,18 @@ namespace GroceryExpress.API.Controllers
                 //}
 
                 if (includeAddress)
-                {  
-                    User? user = await _service.GetWithAddress(id);
-                return Ok(mapper.Map<User, ShowUserDTO>(user));
-                
-                }else
                 {
-                    User? user = await _service.Get(id);
-                    return Ok(mapper.Map<User,ShowUserWithoutAddressDTO>(user));
+                    User? user = await _service.GetWithAddress(id);
+                    return Ok(mapper.Map<User, ShowUserDTO>(user));
 
                 }
-               
+                else
+                {
+                    User? user = await _service.Get(id);
+                    return Ok(mapper.Map<User, ShowUserWithoutAddressDTO>(user));
+
+                }
+
             }
             catch (KeyNotFoundException ex)
             {
@@ -79,7 +77,8 @@ namespace GroceryExpress.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(int id) {
+        public async Task<ActionResult> Delete(int id)
+        {
             try
             {
                 await _service.Delete(id);
@@ -101,7 +100,7 @@ namespace GroceryExpress.API.Controllers
         {
             try
             {
-                var user= await _service.Update(id,
+                var user = await _service.Update(id,
                     userDTO.FirstName,
                                     userDTO.LastName,
                                     userDTO.Username,

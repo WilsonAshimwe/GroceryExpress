@@ -22,4 +22,8 @@
     <ProjectReference Include="..\GroceryExpress.DOMAIN\GroceryExpress.DOMAIN.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTO\Orders\" />
+  </ItemGroup>
+
 </Project>

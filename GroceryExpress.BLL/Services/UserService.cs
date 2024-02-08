@@ -1,6 +1,5 @@
 ﻿using GroceryExpress.BLL.Interfaces;
 using GroceryExpress.DOMAIN.Entities;
-using System.Runtime.InteropServices;
 
 namespace GroceryExpress.BLL.Services
 {
@@ -49,22 +48,7 @@ namespace GroceryExpress.BLL.Services
 
         public async Task<User> Get(int id)
         {
-            User? user= await _userRepository.Find(id);
-            if (user == null)
-            {
-                throw new KeyNotFoundException($"There is not user with id {id}");
-            }
-            return user;
-        }     
-        
-        public async Task<List<User>> GetAll()
-        {
-            return await _userRepository.FindAll();
-        }    
-        
-        public async Task<User> GetWithAddress(int id)
-        {
-            User? user= await _userRepository.FindWithAddress(id);
+            User? user = await _userRepository.Find(id);
             if (user == null)
             {
                 throw new KeyNotFoundException($"There is not user with id {id}");
@@ -72,7 +56,32 @@ namespace GroceryExpress.BLL.Services
             return user;
         }
 
-        public async Task Delete(int id) {
+        public async Task<List<User>> GetAll()
+        {
+            return await _userRepository.FindAll();
+        }
+
+        public async Task<User> GetWithAddress(int id)
+        {
+            User? user = await _userRepository.FindWithAddress(id);
+            if (user == null)
+            {
+                throw new KeyNotFoundException($"There is not user with id {id}");
+            }
+            return user;
+        }
+        public async Task<User> GetWithOrders(int id)
+        {
+            User? user = await _userRepository.FindWithOrders(id);
+            if (user == null)
+            {
+                throw new KeyNotFoundException($"There is not user with id {id}");
+            }
+            return user;
+        }
+
+        public async Task Delete(int id)
+        {
 
             User? user = await _userRepository.Find(id);
             if (user == null)
@@ -85,18 +94,19 @@ namespace GroceryExpress.BLL.Services
 
         }
 
-        public async Task<User> Update(int id, 
-                           string firstname, 
-                           string lastname, 
-                           string username, 
+        public async Task<User> Update(int id,
+                           string firstname,
+                           string lastname,
+                           string username,
                            string email,
-                           string phonenumber, 
-                           DateOnly birthdate, 
+                           string phonenumber,
+                           DateOnly birthdate,
                            string street,
                            string number,
                            string? box,
                            string city,
-                           int postalcode) {
+                           int postalcode)
+        {
 
             User? user = await _userRepository.Find(id);
             if (user is null)
@@ -112,7 +122,7 @@ namespace GroceryExpress.BLL.Services
             user.BirthDate = birthdate;
             user.Address.Street = street;
             user.Address.Number = number;
-            user.Address.Box= box;
+            user.Address.Box = box;
             user.Address.City = city;
             user.Address.PostalCode = postalcode;
 
