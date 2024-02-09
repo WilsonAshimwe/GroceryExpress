@@ -54,9 +54,11 @@ namespace GroceryExpress.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ItemImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    AddedDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -157,19 +159,19 @@ namespace GroceryExpress.DAL.Migrations
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Category", "Description", "ItemImageUrl", "Name", "Price" },
+                columns: new[] { "Id", "AddedDate", "Brand", "Category", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Fruits", "Fresh and juicy", "https://example.com/apple_image.jpg", "Apple", 1.99m },
-                    { 2, "Fruits", "Ripe and sweet", "https://example.com/banana_image.jpg", "Banana", 0.99m },
-                    { 3, "Dairy", "Whole milk", "https://example.com/milk_image.jpg", "Milk", 2.49m },
-                    { 4, "Bakery", "Whole wheat bread", "https://example.com/bread_image.jpg", "Bread", 2.29m },
-                    { 5, "Meat", "Boneless skinless chicken breast", "https://example.com/chicken_image.jpg", "Chicken", 4.99m },
-                    { 6, "Vegetables", "Fresh organic spinach", "https://example.com/spinach_image.jpg", "Spinach", 1.49m },
-                    { 7, "Dairy", "Low-fat yogurt", "https://example.com/yogurt_image.jpg", "Yogurt", 1.79m },
-                    { 8, "Other", "Large brown eggs", "https://example.com/eggs_image.jpg", "Eggs", 2.99m },
-                    { 9, "Beverages", "100% pure orange juice", "https://example.com/orangejuice_image.jpg", "Orange Juice", 3.49m },
-                    { 10, "SweetFood", "Milk chocolate bar", "https://example.com/chocolate_image.jpg", "Chocolate", 1.29m }
+                    { 1, new DateOnly(2024, 2, 7), "Gala", "Fruits", "Fresh and juicy", "https://example.com/apple_image.jpg", "Apple", 1.99m },
+                    { 2, new DateOnly(2024, 2, 7), "Chiquita", "Fruits", "Ripe and sweet", "https://example.com/banana_image.jpg", "Banana", 0.99m },
+                    { 3, new DateOnly(2024, 2, 7), "Alpro", "Dairy", "Whole milk", "https://example.com/milk_image.jpg", "Milk", 2.49m },
+                    { 4, new DateOnly(2024, 2, 7), "Jacquet", "Bakery", "Whole wheat bread", "https://example.com/bread_image.jpg", "Bread", 2.29m },
+                    { 5, new DateOnly(2024, 2, 7), "Maïski", "Meat", "Boneless skinless chicken breast", "https://example.com/chicken_image.jpg", "Chicken", 4.99m },
+                    { 6, new DateOnly(2024, 2, 7), "Iglo", "Vegetables", "Fresh organic spinach", "https://example.com/spinach_image.jpg", "Spinach", 1.49m },
+                    { 7, new DateOnly(2024, 2, 7), "Alpro", "Dairy", "Low-fat yogurt", "https://example.com/yogurt_image.jpg", "Yogurt", 1.79m },
+                    { 8, new DateOnly(2024, 2, 7), "Columbus", "Other", "Large brown eggs", "https://example.com/eggs_image.jpg", "Eggs", 2.99m },
+                    { 9, new DateOnly(2024, 2, 7), "Tropicana", "Beverages", "100% pure orange juice", "https://example.com/orangejuice_image.jpg", "Orange Juice", 3.49m },
+                    { 10, new DateOnly(2024, 2, 7), "Galak", "SweetFood", "Milk chocolate bar", "https://example.com/chocolate_image.jpg", "Chocolate", 1.29m }
                 });
 
             migrationBuilder.InsertData(

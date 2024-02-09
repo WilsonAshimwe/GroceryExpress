@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\Orders\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

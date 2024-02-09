@@ -1,4 +1,5 @@
 ﻿using GroceryExpress.Domain.Enums;
+using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,14 +21,17 @@ namespace GroceryExpress.DOMAIN.Entities
 
         public string Description { get; set; } = null!;
 
+        public string Brand { get; set; }
+
         [Column(TypeName = "decimal(5, 2)")]
         public decimal Price { get; set; }
 
+
         public GroceryCategory Category { get; set; }
 
-        public DateOnly AddedDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+        public DateOnly AddedDate { get; private set; } = DateOnly.FromDateTime(DateTime.Now);
 
-        public string ItemImageUrl { get; set; } = null!;
+        public string ImageUrl { get; set; } = null!;
 
         public ICollection<Order> Orders { get; set; }
 

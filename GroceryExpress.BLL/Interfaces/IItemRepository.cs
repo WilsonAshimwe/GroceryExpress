@@ -1,4 +1,5 @@
-﻿using GroceryExpress.DOMAIN.Entities;
+﻿using GroceryExpress.Domain.Enums;
+using GroceryExpress.DOMAIN.Entities;
 
 namespace GroceryExpress.BLL.Interfaces
 {
@@ -7,7 +8,7 @@ namespace GroceryExpress.BLL.Interfaces
 
         Task<Item?> Find(int id);
 
-        Task<List<Item>> FindAll();
+        Task<List<Item>> FindAll(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page = 1);
 
         Task<Item> Add(Item Item);
 

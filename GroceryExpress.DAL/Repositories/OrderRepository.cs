@@ -7,6 +7,8 @@ namespace GroceryExpress.DAL.Repositories
     {
         public OrderRepository(GroceryExpressContext _context) : base(_context)
         {
+
         }
+ 
     }
 }

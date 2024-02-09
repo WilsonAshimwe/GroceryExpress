@@ -24,6 +24,7 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ItemService>();
+builder.Services.AddScoped<OrderService>();
 builder.Services.AddSingleton<IMapper>(new MapperConfiguration(mc =>
 {
     mc.AddProfile<DTOToDomain>();
@@ -38,6 +39,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 

@@ -1,13 +1,14 @@
 ﻿using GroceryExpress.BLL.Interfaces;
 using GroceryExpress.Domain.Enums;
 using GroceryExpress.DOMAIN.Entities;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace GroceryExpress.BLL.Services
 {
     public class ItemService(IItemRepository _itemRepository)
     {
 
-        public async Task<Item> Add(string name, string description, decimal price, GroceryCategory category, string itemImageUrl)
+        public async Task<Item> Add(string name, string description, string brand,  decimal price, GroceryCategory category, string Image)
         {
             return await _itemRepository.Add(
 
@@ -16,8 +17,9 @@ namespace GroceryExpress.BLL.Services
                     Name = name,
                     Description = description,
                     Price = price,
+                    Brand = brand,
                     Category = category,
-                    ItemImageUrl = itemImageUrl
+                    ImageUrl = Image
                 });
 
         }
@@ -33,9 +35,10 @@ namespace GroceryExpress.BLL.Services
             return item;
         }
 
-        public async Task<List<Item>> GetAll()
+        public async Task<List<Item>> GetAll(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page)
         {
-            return await _itemRepository.FindAll();
+            return await  _itemRepository.FindAll(searchCategory, searchBrand, sortProp, isDescending, page);
+          
         }
 
 

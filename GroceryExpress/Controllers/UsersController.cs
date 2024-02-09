@@ -8,13 +8,13 @@ namespace GroceryExpress.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(UserService _service, IMapper mapper) : ControllerBase
+    public class UsersController(UserService _userService, IMapper mapper) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<List<User>>> GetAll()
         {
             var configuration = new MapperConfiguration(cfg => cfg.CreateMap<User, ShowUserDTO>());
-            var users = await _service.GetAll();
+            var users = await _userService.GetAll();
             var results = mapper.Map<List<User>, List<ShowUserDTO>>(users);
 
             return Ok(results);
@@ -26,7 +26,7 @@ namespace GroceryExpress.API.Controllers
         {
 
 
-            User user = await _service.Add(userDTO.FirstName,
+            User user = await _userService.Add(userDTO.FirstName,
                                              userDTO.LastName,
                                              userDTO.Username,
                                              userDTO.Email,
@@ -56,13 +56,13 @@ namespace GroceryExpress.API.Controllers
 
                 if (includeAddress)
                 {
-                    User? user = await _service.GetWithAddress(id);
+                    User? user = await _userService.GetWithAddress(id);
                     return Ok(mapper.Map<User, ShowUserDTO>(user));
 
                 }
                 else
                 {
-                    User? user = await _service.Get(id);
+                    User? user = await _userService.Get(id);
                     return Ok(mapper.Map<User, ShowUserWithoutAddressDTO>(user));
 
                 }
@@ -81,7 +81,7 @@ namespace GroceryExpress.API.Controllers
         {
             try
             {
-                await _service.Delete(id);
+                await _userService.Delete(id);
                 return NoContent();
 
             }
@@ -100,7 +100,7 @@ namespace GroceryExpress.API.Controllers
         {
             try
             {
-                var user = await _service.Update(id,
+                var user = await _userService.Update(id,
                     userDTO.FirstName,
                                     userDTO.LastName,
                                     userDTO.Username,
