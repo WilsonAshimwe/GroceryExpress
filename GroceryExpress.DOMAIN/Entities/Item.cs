@@ -12,8 +12,6 @@ namespace GroceryExpress.DOMAIN.Entities
         public Item()
         {
             Orders = new HashSet<Order>();
-
-
         }
         [Key]
         public int Id { get; set; }

@@ -126,7 +126,7 @@ namespace GroceryExpress.BLL.Services
             user.Address.City = city;
             user.Address.PostalCode = postalcode;
 
-            return user;
+            return await _userRepository.Update(user);
 
         }
 

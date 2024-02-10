@@ -1,14 +1,15 @@
 ﻿using GroceryExpress.BLL.Interfaces;
 using GroceryExpress.Domain.Enums;
 using GroceryExpress.DOMAIN.Entities;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace GroceryExpress.BLL.Services
 {
     public class ItemService(IItemRepository _itemRepository)
     {
 
-        public async Task<Item> Add(string name, string description, string brand,  decimal price, GroceryCategory category, string Image)
+        private const int MaxPageSize = 5;
+
+        public async Task<Item> Add(string name, string description, string brand, decimal price, GroceryCategory category, string Image)
         {
             return await _itemRepository.Add(
 
@@ -35,10 +36,11 @@ namespace GroceryExpress.BLL.Services
             return item;
         }
 
-        public async Task<List<Item>> GetAll(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page)
+        public async Task<List<Item>> GetAll(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page, int size)
         {
-            return await  _itemRepository.FindAll(searchCategory, searchBrand, sortProp, isDescending, page);
-          
+            if (size > MaxPageSize) { size = MaxPageSize; }
+            return await _itemRepository.FindAll(searchCategory, searchBrand, sortProp, isDescending, page, size);
+
         }
 
 
@@ -53,6 +55,26 @@ namespace GroceryExpress.BLL.Services
             await _itemRepository.Delete(Item);
 
 
+
+        }
+
+        public async Task<Item> Update(int id, string name, string description, string brand, decimal price, GroceryCategory category, string imageUrl)
+        {
+
+            Item? item = await _itemRepository.Find(id);
+            if (item is null)
+            {
+                throw new KeyNotFoundException($"the item with {id} cannot be found");
+            };
+
+            item.Name = name;
+            item.Description = description;
+            item.Brand = brand;
+            item.Price = price;
+            item.Category = category;
+            item.ImageUrl = imageUrl;
+
+            return await _itemRepository.Update(item);
 
         }
 

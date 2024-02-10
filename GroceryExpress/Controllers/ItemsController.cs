@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using GroceryExpress.API.DTO.Items;
-using GroceryExpress.API.DTO.Users;
 using GroceryExpress.BLL.Services;
 using GroceryExpress.Domain.Enums;
 using GroceryExpress.DOMAIN.Entities;
@@ -8,25 +7,24 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GroceryExpress.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/items")]
     [ApiController]
     public class ItemsController(ItemService _itemService, IMapper mapper) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<Item>>> GetAll(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page = 1)
+        public async Task<ActionResult<List<Item>>> GetItems(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page = 1, int size = 2)
         {
-
 
             //var configuration = new MapperConfiguration(cfg => cfg.CreateMap<Item, ShowItemDTO>());
 
-            var items= await _itemService.GetAll(searchCategory, searchBrand, sortProp, isDescending, page);
+            var items = await _itemService.GetAll(searchCategory, searchBrand, sortProp, isDescending, page, size);
 
             return Ok(mapper.Map<List<Item>, List<ShowItemDTO>>(items));
-        
+
         }
 
-            [HttpGet("{id}")]
-        public async Task<ActionResult<Item>> Get(int id)
+        [HttpGet("{id}", Name = "GetItem")]
+        public async Task<ActionResult<Item>> GetItem(int id)
         {
 
             try
@@ -51,14 +49,14 @@ namespace GroceryExpress.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Add(CreateItemDTO dto)
+        public async Task<ActionResult> CreateItem(CreateItemDTO dto)
         {
 
-            await _itemService.Add(
+            Item item = await _itemService.Add(
                 dto.Name, dto.Description, dto.Brand, dto.Price, dto.Category, dto.ImageUrl
                 );
-            return Ok();
-            
+            return CreatedAtRoute("GetItem", new { item.Id }, mapper.Map<Item, ShowItemDTO>(item));
+
         }
 
         [HttpDelete]
@@ -67,6 +65,24 @@ namespace GroceryExpress.API.Controllers
             try
             {
                 await _itemService.Delete(id);
+                return NoContent();
+
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+
+            }
+
+
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(int id, UpdateItemDTO updateItemDTO)
+        {
+            try
+            {
+                var newItem = await _itemService.Update(id, updateItemDTO.Name, updateItemDTO.Description, updateItemDTO.Brand, updateItemDTO.Price, updateItemDTO.Category, updateItemDTO.ImageUrl);
                 return NoContent();
 
             }
