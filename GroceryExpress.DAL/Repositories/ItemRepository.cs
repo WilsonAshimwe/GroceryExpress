@@ -25,7 +25,7 @@ namespace GroceryExpress.DAL.Repositories
                     ? subQuery.OrderByDescending(i => sortProp == "name" ? i.Name : (sortProp == "Category" ? i.Brand : i.Name))
                     : subQuery.OrderBy(i => sortProp == "name" ? i.Name : (sortProp == "Category" ? i.Brand : i.Name));
             }
-            subQuery.Skip((page - 1) * size).Take(size);
+            subQuery = subQuery.Skip((page - 1) * size).Take(size);
             return await subQuery.ToListAsync();
         }
     }

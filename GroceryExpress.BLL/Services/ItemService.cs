@@ -7,7 +7,7 @@ namespace GroceryExpress.BLL.Services
     public class ItemService(IItemRepository _itemRepository)
     {
 
-        private const int MaxPageSize = 5;
+        private const int MaxPageSize = 50;
 
         public async Task<Item> Add(string name, string description, string brand, decimal price, GroceryCategory category, string Image)
         {

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GroceryExpress.API.DTO;
 using GroceryExpress.API.DTO.Items;
 using GroceryExpress.BLL.Services;
 using GroceryExpress.Domain.Enums;
@@ -12,14 +13,15 @@ namespace GroceryExpress.API.Controllers
     public class ItemsController(ItemService _itemService, IMapper mapper) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<Item>>> GetItems(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page = 1, int size = 2)
+        public async Task<IActionResult> GetItems(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page = 1, int size = 50)
         {
 
             //var configuration = new MapperConfiguration(cfg => cfg.CreateMap<Item, ShowItemDTO>());
 
             var items = await _itemService.GetAll(searchCategory, searchBrand, sortProp, isDescending, page, size);
+            var results = mapper.Map<List<Item>, List<ShowItemDTO>>(items);
 
-            return Ok(mapper.Map<List<Item>, List<ShowItemDTO>>(items));
+            return Ok(new IndexDTO<ShowItemDTO>(results ?? throw new Exception(), page, size, new { searchCategory, searchBrand, sortProp, isDescending }));
 
         }
 

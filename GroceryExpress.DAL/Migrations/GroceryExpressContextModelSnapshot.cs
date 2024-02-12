@@ -198,110 +198,110 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Gala",
                             Category = "Fruits",
                             Description = "Fresh and juicy",
-                            ImageUrl = "https://example.com/apple_image.jpg",
+                            ImageUrl = "images\\galaapplejuiced.jpg",
                             Name = "Apple",
                             Price = 1.99m
                         },
                         new
                         {
                             Id = 2,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Chiquita",
                             Category = "Fruits",
                             Description = "Ripe and sweet",
-                            ImageUrl = "https://example.com/banana_image.jpg",
+                            ImageUrl = "images\\Chiquitabanana.jpg",
                             Name = "Banana",
                             Price = 0.99m
                         },
                         new
                         {
                             Id = 3,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Whole milk",
-                            ImageUrl = "https://example.com/milk_image.jpg",
+                            ImageUrl = "images\\alpromilk.jpg",
                             Name = "Milk",
                             Price = 2.49m
                         },
                         new
                         {
                             Id = 4,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Jacquet",
                             Category = "Bakery",
                             Description = "Whole wheat bread",
-                            ImageUrl = "https://example.com/bread_image.jpg",
+                            ImageUrl = "images\\jacquetbread.jpg",
                             Name = "Bread",
                             Price = 2.29m
                         },
                         new
                         {
                             Id = 5,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Maïski",
                             Category = "Meat",
                             Description = "Boneless skinless chicken breast",
-                            ImageUrl = "https://example.com/chicken_image.jpg",
+                            ImageUrl = "images\\maiskichicken.jpg",
                             Name = "Chicken",
                             Price = 4.99m
                         },
                         new
                         {
                             Id = 6,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Iglo",
                             Category = "Vegetables",
                             Description = "Fresh organic spinach",
-                            ImageUrl = "https://example.com/spinach_image.jpg",
+                            ImageUrl = "images\\iglospinach.jpg",
                             Name = "Spinach",
                             Price = 1.49m
                         },
                         new
                         {
                             Id = 7,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Low-fat yogurt",
-                            ImageUrl = "https://example.com/yogurt_image.jpg",
+                            ImageUrl = "images\\alproyogourt.jpg",
                             Name = "Yogurt",
                             Price = 1.79m
                         },
                         new
                         {
                             Id = 8,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Columbus",
                             Category = "Other",
                             Description = "Large brown eggs",
-                            ImageUrl = "https://example.com/eggs_image.jpg",
+                            ImageUrl = "images\\columbuseggs.jpg",
                             Name = "Eggs",
                             Price = 2.99m
                         },
                         new
                         {
                             Id = 9,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Tropicana",
                             Category = "Beverages",
                             Description = "100% pure orange juice",
-                            ImageUrl = "https://example.com/orangejuice_image.jpg",
+                            ImageUrl = "images\\tropicanaorangejuice.jpg",
                             Name = "Orange Juice",
                             Price = 3.49m
                         },
                         new
                         {
                             Id = 10,
-                            AddedDate = new DateOnly(2024, 2, 11),
+                            AddedDate = new DateOnly(2024, 2, 12),
                             Brand = "Galak",
                             Category = "SweetFood",
                             Description = "Milk chocolate bar",
-                            ImageUrl = "https://example.com/chocolate_image.jpg",
+                            ImageUrl = "images\\chocolatgalak.jpg",
                             Name = "Chocolate",
                             Price = 1.29m
                         });

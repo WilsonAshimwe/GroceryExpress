@@ -162,16 +162,16 @@ namespace GroceryExpress.DAL.Migrations
                 columns: new[] { "Id", "AddedDate", "Brand", "Category", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, new DateOnly(2024, 2, 11), "Gala", "Fruits", "Fresh and juicy", "https://example.com/apple_image.jpg", "Apple", 1.99m },
-                    { 2, new DateOnly(2024, 2, 11), "Chiquita", "Fruits", "Ripe and sweet", "https://example.com/banana_image.jpg", "Banana", 0.99m },
-                    { 3, new DateOnly(2024, 2, 11), "Alpro", "Dairy", "Whole milk", "https://example.com/milk_image.jpg", "Milk", 2.49m },
-                    { 4, new DateOnly(2024, 2, 11), "Jacquet", "Bakery", "Whole wheat bread", "https://example.com/bread_image.jpg", "Bread", 2.29m },
-                    { 5, new DateOnly(2024, 2, 11), "Maïski", "Meat", "Boneless skinless chicken breast", "https://example.com/chicken_image.jpg", "Chicken", 4.99m },
-                    { 6, new DateOnly(2024, 2, 11), "Iglo", "Vegetables", "Fresh organic spinach", "https://example.com/spinach_image.jpg", "Spinach", 1.49m },
-                    { 7, new DateOnly(2024, 2, 11), "Alpro", "Dairy", "Low-fat yogurt", "https://example.com/yogurt_image.jpg", "Yogurt", 1.79m },
-                    { 8, new DateOnly(2024, 2, 11), "Columbus", "Other", "Large brown eggs", "https://example.com/eggs_image.jpg", "Eggs", 2.99m },
-                    { 9, new DateOnly(2024, 2, 11), "Tropicana", "Beverages", "100% pure orange juice", "https://example.com/orangejuice_image.jpg", "Orange Juice", 3.49m },
-                    { 10, new DateOnly(2024, 2, 11), "Galak", "SweetFood", "Milk chocolate bar", "https://example.com/chocolate_image.jpg", "Chocolate", 1.29m }
+                    { 1, new DateOnly(2024, 2, 12), "Gala", "Fruits", "Fresh and juicy", "images\\galaapplejuiced.jpg", "Apple", 1.99m },
+                    { 2, new DateOnly(2024, 2, 12), "Chiquita", "Fruits", "Ripe and sweet", "images\\Chiquitabanana.jpg", "Banana", 0.99m },
+                    { 3, new DateOnly(2024, 2, 12), "Alpro", "Dairy", "Whole milk", "images\\alpromilk.jpg", "Milk", 2.49m },
+                    { 4, new DateOnly(2024, 2, 12), "Jacquet", "Bakery", "Whole wheat bread", "images\\jacquetbread.jpg", "Bread", 2.29m },
+                    { 5, new DateOnly(2024, 2, 12), "Maïski", "Meat", "Boneless skinless chicken breast", "images\\maiskichicken.jpg", "Chicken", 4.99m },
+                    { 6, new DateOnly(2024, 2, 12), "Iglo", "Vegetables", "Fresh organic spinach", "images\\iglospinach.jpg", "Spinach", 1.49m },
+                    { 7, new DateOnly(2024, 2, 12), "Alpro", "Dairy", "Low-fat yogurt", "images\\alproyogourt.jpg", "Yogurt", 1.79m },
+                    { 8, new DateOnly(2024, 2, 12), "Columbus", "Other", "Large brown eggs", "images\\columbuseggs.jpg", "Eggs", 2.99m },
+                    { 9, new DateOnly(2024, 2, 12), "Tropicana", "Beverages", "100% pure orange juice", "images\\tropicanaorangejuice.jpg", "Orange Juice", 3.49m },
+                    { 10, new DateOnly(2024, 2, 12), "Galak", "SweetFood", "Milk chocolate bar", "images\\chocolatgalak.jpg", "Chocolate", 1.29m }
                 });
 
             migrationBuilder.InsertData(
