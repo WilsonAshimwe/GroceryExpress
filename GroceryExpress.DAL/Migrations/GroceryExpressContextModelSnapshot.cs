@@ -198,7 +198,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Gala",
                             Category = "Fruits",
                             Description = "Fresh and juicy",
@@ -209,7 +209,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 2,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Chiquita",
                             Category = "Fruits",
                             Description = "Ripe and sweet",
@@ -220,7 +220,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 3,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Whole milk",
@@ -231,7 +231,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 4,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Jacquet",
                             Category = "Bakery",
                             Description = "Whole wheat bread",
@@ -242,7 +242,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 5,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Maïski",
                             Category = "Meat",
                             Description = "Boneless skinless chicken breast",
@@ -253,7 +253,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 6,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Iglo",
                             Category = "Vegetables",
                             Description = "Fresh organic spinach",
@@ -264,7 +264,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 7,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Low-fat yogurt",
@@ -275,7 +275,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 8,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Columbus",
                             Category = "Other",
                             Description = "Large brown eggs",
@@ -286,7 +286,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 9,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Tropicana",
                             Category = "Beverages",
                             Description = "100% pure orange juice",
@@ -297,7 +297,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 10,
-                            AddedDate = new DateOnly(2024, 2, 7),
+                            AddedDate = new DateOnly(2024, 2, 11),
                             Brand = "Galak",
                             Category = "SweetFood",
                             Description = "Milk chocolate bar",
