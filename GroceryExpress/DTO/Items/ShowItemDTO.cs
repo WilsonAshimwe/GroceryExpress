@@ -15,7 +15,7 @@ namespace GroceryExpress.API.DTO.Items
 
         public GroceryCategory Category { get; set; }
 
-        public DateOnly AddedDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+        public DateTime AddedDate { get; set; } = DateTime.Now;
 
         public string ImageUrl { get; set; } = null!;
 

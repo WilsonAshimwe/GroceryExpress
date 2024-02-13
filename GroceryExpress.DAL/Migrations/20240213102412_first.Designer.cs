@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GroceryExpress.DAL.Migrations
 {
     [DbContext(typeof(GroceryExpressContext))]
-    [Migration("20240212133155_first")]
+    [Migration("20240213102412_first")]
     partial class first
     {
         /// <inheritdoc />
@@ -167,8 +167,8 @@ namespace GroceryExpress.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateOnly>("AddedDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Brand")
                         .IsRequired()
@@ -201,7 +201,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 742, DateTimeKind.Local).AddTicks(6871),
                             Brand = "Gala",
                             Category = "Fruits",
                             Description = "Fresh and juicy",
@@ -212,7 +212,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 2,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3712),
                             Brand = "Chiquita",
                             Category = "Fruits",
                             Description = "Ripe and sweet",
@@ -223,7 +223,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 3,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3752),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Whole milk",
@@ -234,7 +234,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 4,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3757),
                             Brand = "Jacquet",
                             Category = "Bakery",
                             Description = "Whole wheat bread",
@@ -245,7 +245,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 5,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3761),
                             Brand = "Maïski",
                             Category = "Meat",
                             Description = "Boneless skinless chicken breast",
@@ -256,7 +256,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 6,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3772),
                             Brand = "Iglo",
                             Category = "Vegetables",
                             Description = "Fresh organic spinach",
@@ -267,7 +267,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 7,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3775),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Low-fat yogurt",
@@ -278,7 +278,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 8,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3779),
                             Brand = "Columbus",
                             Category = "Other",
                             Description = "Large brown eggs",
@@ -289,7 +289,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 9,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3782),
                             Brand = "Tropicana",
                             Category = "Beverages",
                             Description = "100% pure orange juice",
@@ -300,33 +300,110 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 10,
-                            AddedDate = new DateOnly(2024, 2, 12),
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3786),
                             Brand = "Galak",
                             Category = "SweetFood",
                             Description = "Milk chocolate bar",
                             ImageUrl = "images\\chocolatgalak.jpg",
                             Name = "Chocolate",
                             Price = 1.29m
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3790),
+                            Brand = "Waitrose ",
+                            Category = "Cerials",
+                            Description = "Oat, wheat and barley flakes with mixed dried fruits, nuts and seeds",
+                            ImageUrl = "images\\essentialfoodandnut.jpg",
+                            Name = "Essential Fruit & Nut Muesli",
+                            Price = 3m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3803),
+                            Brand = "Waitrose ",
+                            Category = "Cerials",
+                            Description = "Cereal (34 %) and Raisin (9.5 %) Bar Half Covered with Milk Chocolate (19 %).",
+                            ImageUrl = "images\\LN_002834_BP_11.jpg",
+                            Name = "Cadbury Brunch Bar Raisin",
+                            Price = 1.55m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3866),
+                            Brand = "Waitrose ",
+                            Category = "SweetFood",
+                            Description = "Lemon flavoured soft bakes.",
+                            ImageUrl = "images\\LN_895684_BP_11;jpg",
+                            Name = "Lu Le Petit Citron Lemon Soft Bakes",
+                            Price = 1.55m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3871),
+                            Brand = "Flash",
+                            Category = "CleaningProduct",
+                            Description = "Kitchen degreaser. Removes up to 100% of grease. With plant-based ingredient (12% of total surfactant, which are subject to processing).",
+                            ImageUrl = "images\\LN_002490_BP_11.jpg",
+                            Name = "Flash Task Kitchen Spray Fresh Citrus800ml",
+                            Price = 2.5m
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3874),
+                            Brand = "Nivea",
+                            Category = "PersonalCare",
+                            Description = "Instantly protects from 5 signs of skin irritation: burning, redness, dryness, tightness & micro cuts.",
+                            ImageUrl = "LN_060554_BP_11.jpg",
+                            Name = "Nivea For Men Sensitive Gel200ml",
+                            Price = 4.25m
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3878),
+                            Brand = "Waitrose",
+                            Category = "FrozenFoods",
+                            Description = "Lovely frozen cod wihich is absolutely delicious.",
+                            ImageUrl = "LN_847760_BP_11.jpg",
+                            Name = "Waitrose Frozen Cod Fillets MSC475g",
+                            Price = 8.50m
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AddedDate = new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3881),
+                            Brand = "Iglo",
+                            Category = "FrozenFoods",
+                            Description = "Basa fillets dusted in a flour breadcrumb coating, with sea salt and cracked black pepper",
+                            ImageUrl = "LN_821034_BP_11",
+                            Name = "Young's Gastro Salt & Pepper Dusted Basa Fillets 2s310g",
+                            Price = 4.50m
                         });
                 });
 
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.ItemOrder", b =>
                 {
-                    b.Property<int>("ItemId")
-                        .HasColumnType("int");
-
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("ItemPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5, 2)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("ItemId", "OrderId");
+                    b.HasKey("OrderId", "ItemId");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("ItemId");
 
                     b.ToTable("OrderItems");
                 });
@@ -339,9 +416,6 @@ namespace GroceryExpress.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("DelivererId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
@@ -349,10 +423,6 @@ namespace GroceryExpress.DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DelivererId");
-
-                    b.HasIndex("OrderDate");
 
                     b.HasIndex("UserId");
 
@@ -513,13 +583,13 @@ namespace GroceryExpress.DAL.Migrations
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.ItemOrder", b =>
                 {
                     b.HasOne("GroceryExpress.DOMAIN.Entities.Item", "Item")
-                        .WithMany()
+                        .WithMany("ItemOrders")
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GroceryExpress.DOMAIN.Entities.Order", "Order")
-                        .WithMany()
+                        .WithMany("ItemOrders")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -531,19 +601,11 @@ namespace GroceryExpress.DAL.Migrations
 
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.Order", b =>
                 {
-                    b.HasOne("GroceryExpress.DOMAIN.Entities.Deliverer", "Deliverer")
-                        .WithMany()
-                        .HasForeignKey("DelivererId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("GroceryExpress.DOMAIN.Entities.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Deliverer");
 
                     b.Navigation("User");
                 });
@@ -557,6 +619,16 @@ namespace GroceryExpress.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.Item", b =>
+                {
+                    b.Navigation("ItemOrders");
+                });
+
+            modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.Order", b =>
+                {
+                    b.Navigation("ItemOrders");
                 });
 
             modelBuilder.Entity("GroceryExpress.DOMAIN.Entities.User", b =>

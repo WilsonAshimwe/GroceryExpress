@@ -11,7 +11,7 @@ namespace GroceryExpress.DOMAIN.Entities
 
         public Item()
         {
-            Orders = new HashSet<Order>();
+            ItemOrders = new HashSet<ItemOrder>();
         }
         [Key]
         public int Id { get; set; }
@@ -27,11 +27,11 @@ namespace GroceryExpress.DOMAIN.Entities
 
         public GroceryCategory Category { get; set; }
 
-        public DateOnly AddedDate { get; private set; } = DateOnly.FromDateTime(DateTime.Now);
+        public DateTime AddedDate { get; private set; } = DateTime.Now;
 
         public string ImageUrl { get; set; } = null!;
 
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<ItemOrder> ItemOrders { get; set; }
 
     }
 }

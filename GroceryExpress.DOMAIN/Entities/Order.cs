@@ -8,18 +8,14 @@
 
         public User User { get; set; }
 
-        public ICollection<Item> Items { get; set; }
+        public ICollection<ItemOrder> ItemOrders { get; set; }
 
-
-        public int DelivererId { get; set; }
-
-        public Deliverer Deliverer { get; set; }
 
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
         public Order()
         {
-            Items = new HashSet<Item>();
+            ItemOrders = new HashSet<ItemOrder>();
         }
 
 

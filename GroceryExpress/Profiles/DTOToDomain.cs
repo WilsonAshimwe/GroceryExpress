@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GroceryExpress.API.DTO.Items;
+using GroceryExpress.API.DTO.Orders;
 using GroceryExpress.DOMAIN.Entities;
 
 namespace GroceryExpress.API.Profiles
@@ -10,6 +11,7 @@ namespace GroceryExpress.API.Profiles
         {
 
             CreateMap<CreateItemDTO, Item>();
+            CreateMap<CreateItemOrderDTO, ItemOrder>();
 
         }
     }

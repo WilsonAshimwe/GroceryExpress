@@ -1,5 +1,6 @@
 ﻿using GroceryExpress.BLL.Interfaces;
 using GroceryExpress.DOMAIN.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace GroceryExpress.DAL.Repositories
 {
@@ -9,6 +10,11 @@ namespace GroceryExpress.DAL.Repositories
         {
 
         }
- 
+
+        public async Task<List<Order>> FindAllWithItems()
+        {
+           return await _table.Include(o => o.ItemOrders).ThenInclude(io => io.Item).ToListAsync();
+        }
+
     }
 }

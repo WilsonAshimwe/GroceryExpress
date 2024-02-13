@@ -20,8 +20,9 @@ namespace GroceryExpress.API.Controllers
 
             var items = await _itemService.GetAll(searchCategory, searchBrand, sortProp, isDescending, page, size);
             var results = mapper.Map<List<Item>, List<ShowItemDTO>>(items);
+            var total = await _itemService.Count(searchCategory, searchBrand);
 
-            return Ok(new IndexDTO<ShowItemDTO>(results ?? throw new Exception(), new { page, size }, new { searchCategory, searchBrand, sortProp, isDescending }));
+            return Ok(new IndexDTO<ShowItemDTO>(results ?? throw new Exception(), new { page, size, total }, new { searchCategory, searchBrand, sortProp, isDescending }));
 
         }
 

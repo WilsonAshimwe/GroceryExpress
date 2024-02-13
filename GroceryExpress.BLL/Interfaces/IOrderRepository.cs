@@ -11,5 +11,6 @@ namespace GroceryExpress.BLL.Interfaces
 
         Task<Order> Update(Order Order);
         Task Delete(Order Order);
+        Task<List<Order>> FindAllWithItems();
     }
 }

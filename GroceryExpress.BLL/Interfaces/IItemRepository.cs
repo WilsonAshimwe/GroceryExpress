@@ -14,5 +14,6 @@ namespace GroceryExpress.BLL.Interfaces
 
         Task<Item> Update(Item Item);
         Task Delete(Item Item);
+        Task<int> Count(GroceryCategory? searchCategory, string? searchBrand);
     }
 }

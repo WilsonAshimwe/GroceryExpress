@@ -5,10 +5,9 @@ namespace GroceryExpress.API.DTO.Orders
 {
     public class CreateOrderDTO
     {
+        public int UserId { get; set; }
         [Required]
-        public int DelivererId { get; set; }
-        [Required]
-        public ICollection<Item> items { get; set; }
+        public ICollection<CreateItemOrderDTO> itemOrders { get; set; }
 
     }
 }

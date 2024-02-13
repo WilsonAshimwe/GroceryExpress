@@ -43,6 +43,11 @@ namespace GroceryExpress.BLL.Services
 
         }
 
+        public async Task<int> Count(GroceryCategory? searchCategory, string? searchBrand)
+        {
+            return await _itemRepository.Count(searchCategory, searchBrand);
+        }
+
 
         public async Task Delete(int id)
         {

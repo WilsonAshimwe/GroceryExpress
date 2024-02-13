@@ -28,5 +28,13 @@ namespace GroceryExpress.DAL.Repositories
             subQuery = subQuery.Skip((page - 1) * size).Take(size);
             return await subQuery.ToListAsync();
         }
+
+        public async Task<int> Count(GroceryCategory? searchCategory, string? searchBrand)
+        {
+            return await _table
+                .Where(i => searchCategory == null || i.Category == searchCategory)
+                .Where(i => searchBrand == null || i.Brand == searchBrand).CountAsync();
+            
+        }
     }
 }
