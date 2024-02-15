@@ -20,6 +20,7 @@
     <ProjectReference Include="..\GroceryExpress.BLL\GroceryExpress.BLL.csproj" />
     <ProjectReference Include="..\GroceryExpress.DAL\GroceryExpress.DAL.csproj" />
     <ProjectReference Include="..\GroceryExpress.DOMAIN\GroceryExpress.DOMAIN.csproj" />
+    <ProjectReference Include="..\Security\SecurityManager.csproj" />
   </ItemGroup>
 
   <ItemGroup>

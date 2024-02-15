@@ -17,6 +17,10 @@ namespace GroceryExpress.DOMAIN.Entities
         public string Username { get; set; } = null!;
         [MaxLength(50), MinLength(12)]
         public string Email { get; set; } = null!;
+
+        [Required]
+        public byte[] Password { get; set; }
+
         [MaxLength(20)]
         public string PhoneNumber { get; set; } = null!;
         public DateOnly BirthDate { get; set; }

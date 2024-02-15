@@ -12,6 +12,7 @@ namespace GroceryExpress.API.DTO.Users
             this.Username = user.Username;
             this.Email = user.Email;
             this.PhoneNumber = user.PhoneNumber;
+            this.Username= user.Username;   
             this.BirthDate = user.BirthDate;
             this.Street = user.Address.Street;
             this.Number = user.Address.Number;
@@ -36,6 +37,9 @@ namespace GroceryExpress.API.DTO.Users
         public string Email { get; set; } = null!;
         [Required, RegularExpression(@"^+32\d{8}$")]
         public string PhoneNumber { get; set; } = null!;
+
+        [MaxLength(50), MinLength(2), Required]
+        public string Password { get; set; } = null!;
 
         [Required]
         public DateOnly BirthDate { get; set; }

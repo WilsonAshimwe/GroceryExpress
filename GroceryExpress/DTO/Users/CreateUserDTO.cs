@@ -18,6 +18,9 @@ namespace GroceryExpress.API.DTO.Users
         [Required, RegularExpression(@"^+32\d{8}$")]
         public string PhoneNumber { get; set; } = null!;
 
+        [MaxLength(50), MinLength(2), Required]
+        public string Password { get; set; } = null!;
+
         [Required]
         public DateOnly BirthDate { get; set; }
 

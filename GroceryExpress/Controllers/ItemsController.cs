@@ -5,6 +5,8 @@ using GroceryExpress.BLL.Services;
 using GroceryExpress.Domain.Enums;
 using GroceryExpress.DOMAIN.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace GroceryExpress.API.Controllers
 {
@@ -53,13 +55,23 @@ namespace GroceryExpress.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles ="Admin")]
         public async Task<ActionResult> CreateItem(CreateItemDTO dto)
         {
+            //|| User.FindFirstValue(ClaimTypes.NameIdentifier) == dto.UserId.ToString())
+            //if (User.IsInRole("Admin"))
+            //{
+                Item item = await _itemService.Add(
+            dto.Name, dto.Description, dto.Brand, dto.Price, dto.Category, dto.ImageUrl
+            );
+                return CreatedAtRoute("GetItem", new { item.Id }, mapper.Map<Item, ShowItemDTO>(item));
+            //}
+            //else
+            //{
+            //    return Unauthorized();
+            //}
 
-            Item item = await _itemService.Add(
-                dto.Name, dto.Description, dto.Brand, dto.Price, dto.Category, dto.ImageUrl
-                );
-            return CreatedAtRoute("GetItem", new { item.Id }, mapper.Map<Item, ShowItemDTO>(item));
+
 
         }
 

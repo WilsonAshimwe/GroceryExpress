@@ -17,11 +17,7 @@ namespace GroceryExpress.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> Add([FromBody] CreateOrderDTO dto)
         {
-            //if(User.IsInRole("ADMIN") || User.FindFirstValue(ClaimTypes.NameIdentifier) == dto.UserId.
-            //    ())
-            //{
-
-            //}
+         
             Order order = await _orderService.Add(dto.UserId, dto.itemOrders.Select(i => _mapper.Map<ItemOrder>(i)).ToList());
 
             return Created("", _mapper.Map<OrderDTO>(order));

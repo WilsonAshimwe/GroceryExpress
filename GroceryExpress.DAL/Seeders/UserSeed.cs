@@ -1,8 +1,9 @@
-﻿using GroceryExpress.DOMAIN.Entities;
+﻿using GroceryExpress.BLL.Infrastructures;
+using GroceryExpress.DOMAIN.Entities;
 
 namespace GroceryExpress.DAL.Seeders
 {
-    public static class UserSeed
+    public static class UserSeed 
     {
         // Create a list of 25 users
         public static List<User> users = new List<User>
@@ -14,6 +15,7 @@ namespace GroceryExpress.DAL.Seeders
                 LastName = "Doe",
                 Username = "johndoe",
                 Email = "john.doe@example.com",
+                Password= new PasswordHasher().Hash("john.doe@example.com" + "January"),
                 PhoneNumber = "123-456-7890",
                 BirthDate = new DateOnly(1990, 1, 1),
                 AddressId = 1,
@@ -25,6 +27,7 @@ namespace GroceryExpress.DAL.Seeders
                 LastName = "Smith",
                 Username = "janesmith",
                 Email = "jane.smith@example.com",
+                Password= new PasswordHasher().Hash("jane.smith@example.com" +"February"),
                 PhoneNumber = "987-654-3210",
                 BirthDate = new DateOnly(1985, 5, 15),
                 AddressId = 2
@@ -38,6 +41,7 @@ namespace GroceryExpress.DAL.Seeders
                 LastName = "Johnson",
                 Username = "alicejohnson",
                 Email = "alice.johnson@example.com",
+                Password= new PasswordHasher().Hash("alice.johnson@example.com" + "March"),
                 PhoneNumber = "555-123-4567",
                 BirthDate = new DateOnly(1988, 8, 20),
                 AddressId = 3,
@@ -50,6 +54,7 @@ namespace GroceryExpress.DAL.Seeders
                 LastName = "Williams",
                 Username = "bobwilliams",
                 Email = "bob.williams@example.com",
+                Password= new PasswordHasher().Hash("bob.williams@example.com"+ "April"),
                 PhoneNumber = "111-222-3333",
                 BirthDate = new DateOnly(1975, 3, 10),
                 AddressId = 4,
@@ -63,6 +68,7 @@ namespace GroceryExpress.DAL.Seeders
                 LastName = "Brown",
                 Username = "evabrown",
                 Email = "eva.brown@example.com",
+                Password= new PasswordHasher().Hash("eva.brown@example.com"+"May"),
                 PhoneNumber = "777-888-9999",
                 BirthDate = new DateOnly(1992, 11, 25),
                 AddressId = 5,
@@ -75,6 +81,7 @@ namespace GroceryExpress.DAL.Seeders
                 LastName = "Clark",
                 Username = "davidclark",
                 Email = "david.clark@example.com",
+                Password= new PasswordHasher().Hash("david.clark@example.com"+ "June"),
                 PhoneNumber = "444-555-6666",
                 BirthDate = new DateOnly(1982, 7, 5),
                 AddressId = 6,
@@ -88,6 +95,7 @@ namespace GroceryExpress.DAL.Seeders
                 LastName = "Miller",
                 Username = "gracemiller",
                 Email = "grace.miller@example.com",
+                Password= new PasswordHasher().Hash("grace.miller@example.com"+"July"),
                 PhoneNumber = "999-000-1111",
                 BirthDate = new DateOnly(1995, 4, 15),
                 AddressId = 7,
@@ -101,6 +109,7 @@ namespace GroceryExpress.DAL.Seeders
                 LastName = "Anderson",
                 Username = "samanderson",
                 Email = "sam.anderson@example.com",
+                Password= new PasswordHasher().Hash("sam.anderson@example.com"+ "August"),
                 PhoneNumber = "222-333-4444",
                 BirthDate = new DateOnly(1978, 9, 30),
                 AddressId = 8,

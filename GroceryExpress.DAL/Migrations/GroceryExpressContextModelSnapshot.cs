@@ -198,7 +198,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 768, DateTimeKind.Local).AddTicks(6936),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 385, DateTimeKind.Local).AddTicks(1879),
                             Brand = "Gala",
                             Category = "Fruits",
                             Description = "Fresh and juicy",
@@ -209,7 +209,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 2,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9729),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8644),
                             Brand = "Chiquita",
                             Category = "Fruits",
                             Description = "Ripe and sweet",
@@ -220,7 +220,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 3,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9749),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8698),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Whole milk",
@@ -231,7 +231,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 4,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9752),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8703),
                             Brand = "Jacquet",
                             Category = "Bakery",
                             Description = "Whole wheat bread",
@@ -242,7 +242,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 5,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9754),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8707),
                             Brand = "Maïski",
                             Category = "Meat",
                             Description = "Boneless skinless chicken breast",
@@ -253,7 +253,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 6,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9759),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8796),
                             Brand = "Iglo",
                             Category = "Vegetables",
                             Description = "Fresh organic spinach",
@@ -264,7 +264,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 7,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9761),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8801),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Low-fat yogurt",
@@ -275,7 +275,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 8,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9763),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8805),
                             Brand = "Columbus",
                             Category = "Other",
                             Description = "Large brown eggs",
@@ -286,7 +286,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 9,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9765),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8809),
                             Brand = "Tropicana",
                             Category = "Beverages",
                             Description = "100% pure orange juice",
@@ -297,7 +297,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 10,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9767),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8814),
                             Brand = "Galak",
                             Category = "SweetFood",
                             Description = "Milk chocolate bar",
@@ -308,7 +308,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 11,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9769),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8818),
                             Brand = "Waitrose ",
                             Category = "Cerials",
                             Description = "Oat, wheat and barley flakes with mixed dried fruits, nuts and seeds",
@@ -319,7 +319,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 12,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9777),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8833),
                             Brand = "Waitrose ",
                             Category = "Cerials",
                             Description = "Cereal (34 %) and Raisin (9.5 %) Bar Half Covered with Milk Chocolate (19 %).",
@@ -330,7 +330,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 13,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9779),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8837),
                             Brand = "Waitrose ",
                             Category = "SweetFood",
                             Description = "Lemon flavoured soft bakes.",
@@ -341,7 +341,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 14,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9780),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8841),
                             Brand = "Flash",
                             Category = "CleaningProduct",
                             Description = "Kitchen degreaser. Removes up to 100% of grease. With plant-based ingredient (12% of total surfactant, which are subject to processing).",
@@ -352,7 +352,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 15,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9782),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8844),
                             Brand = "Nivea",
                             Category = "PersonalCare",
                             Description = "Instantly protects from 5 signs of skin irritation: burning, redness, dryness, tightness & micro cuts.",
@@ -363,7 +363,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 16,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9783),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8848),
                             Brand = "Waitrose",
                             Category = "FrozenFoods",
                             Description = "Lovely frozen cod wihich is absolutely delicious.",
@@ -374,7 +374,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 17,
-                            AddedDate = new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9785),
+                            AddedDate = new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8852),
                             Brand = "Iglo",
                             Category = "FrozenFoods",
                             Description = "Basa fillets dusted in a flour breadcrumb coating, with sea salt and cracked black pepper",
@@ -455,6 +455,10 @@ namespace GroceryExpress.DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<byte[]>("Password")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -487,6 +491,7 @@ namespace GroceryExpress.DAL.Migrations
                             Email = "john.doe@example.com",
                             FirstName = "John",
                             LastName = "Doe",
+                            Password = new byte[] { 186, 186, 111, 17, 248, 145, 146, 14, 212, 140, 235, 142, 214, 186, 1, 0, 138, 81, 162, 1, 124, 197, 191, 156, 131, 127, 25, 172, 215, 229, 13, 103, 180, 95, 117, 209, 88, 137, 84, 24, 201, 212, 97, 136, 145, 77, 54, 186, 221, 80, 82, 196, 253, 150, 20, 106, 108, 7, 37, 21, 32, 212, 55, 82 },
                             PhoneNumber = "123-456-7890",
                             Role = "Customer",
                             Username = "johndoe"
@@ -499,6 +504,7 @@ namespace GroceryExpress.DAL.Migrations
                             Email = "jane.smith@example.com",
                             FirstName = "Jane",
                             LastName = "Smith",
+                            Password = new byte[] { 149, 219, 31, 239, 73, 187, 203, 41, 96, 155, 74, 160, 164, 204, 190, 55, 204, 2, 59, 170, 195, 28, 233, 3, 154, 176, 240, 91, 103, 120, 26, 33, 217, 40, 88, 15, 86, 253, 97, 75, 217, 38, 183, 205, 140, 51, 227, 70, 203, 244, 254, 42, 167, 48, 225, 3, 139, 13, 168, 162, 55, 100, 198, 194 },
                             PhoneNumber = "987-654-3210",
                             Role = "Customer",
                             Username = "janesmith"
@@ -511,6 +517,7 @@ namespace GroceryExpress.DAL.Migrations
                             Email = "alice.johnson@example.com",
                             FirstName = "Alice",
                             LastName = "Johnson",
+                            Password = new byte[] { 75, 210, 226, 158, 139, 186, 242, 228, 191, 158, 200, 152, 6, 77, 167, 181, 115, 33, 36, 19, 208, 233, 45, 22, 3, 10, 134, 33, 145, 68, 28, 37, 192, 94, 13, 220, 252, 79, 66, 61, 14, 236, 86, 191, 215, 123, 67, 103, 114, 192, 213, 90, 139, 255, 127, 247, 5, 228, 240, 51, 78, 88, 185, 165 },
                             PhoneNumber = "555-123-4567",
                             Role = "Customer",
                             Username = "alicejohnson"
@@ -523,6 +530,7 @@ namespace GroceryExpress.DAL.Migrations
                             Email = "bob.williams@example.com",
                             FirstName = "Bob",
                             LastName = "Williams",
+                            Password = new byte[] { 195, 234, 245, 81, 46, 77, 181, 197, 182, 53, 39, 243, 112, 4, 150, 64, 69, 21, 135, 123, 70, 122, 146, 120, 47, 187, 62, 75, 165, 33, 38, 15, 245, 247, 225, 80, 170, 57, 59, 63, 186, 195, 131, 144, 156, 164, 112, 225, 4, 144, 153, 4, 230, 220, 130, 79, 188, 41, 63, 207, 78, 184, 27, 32 },
                             PhoneNumber = "111-222-3333",
                             Role = "Customer",
                             Username = "bobwilliams"
@@ -535,6 +543,7 @@ namespace GroceryExpress.DAL.Migrations
                             Email = "eva.brown@example.com",
                             FirstName = "Eva",
                             LastName = "Brown",
+                            Password = new byte[] { 198, 77, 128, 237, 255, 243, 143, 108, 226, 171, 107, 202, 170, 68, 36, 99, 59, 164, 97, 136, 54, 56, 56, 82, 45, 111, 25, 225, 155, 8, 126, 118, 9, 4, 88, 192, 191, 13, 165, 71, 174, 118, 57, 209, 204, 83, 102, 21, 28, 7, 196, 212, 177, 68, 201, 185, 191, 167, 130, 240, 80, 168, 173, 29 },
                             PhoneNumber = "777-888-9999",
                             Role = "Customer",
                             Username = "evabrown"
@@ -547,6 +556,7 @@ namespace GroceryExpress.DAL.Migrations
                             Email = "david.clark@example.com",
                             FirstName = "David",
                             LastName = "Clark",
+                            Password = new byte[] { 62, 34, 117, 240, 79, 194, 195, 242, 25, 167, 24, 114, 194, 74, 201, 62, 196, 199, 144, 146, 112, 186, 88, 28, 246, 167, 185, 240, 27, 106, 104, 127, 109, 6, 21, 95, 7, 63, 201, 80, 240, 165, 21, 51, 233, 122, 64, 198, 119, 181, 56, 101, 55, 104, 250, 219, 60, 100, 5, 230, 181, 190, 166, 101 },
                             PhoneNumber = "444-555-6666",
                             Role = "Customer",
                             Username = "davidclark"
@@ -559,6 +569,7 @@ namespace GroceryExpress.DAL.Migrations
                             Email = "grace.miller@example.com",
                             FirstName = "Grace",
                             LastName = "Miller",
+                            Password = new byte[] { 216, 43, 62, 55, 208, 60, 249, 94, 186, 225, 243, 115, 45, 252, 131, 162, 186, 180, 131, 4, 224, 198, 38, 218, 202, 106, 114, 113, 241, 125, 11, 146, 41, 181, 204, 150, 213, 89, 110, 217, 244, 9, 187, 173, 95, 8, 46, 164, 241, 227, 42, 59, 128, 167, 161, 120, 132, 2, 16, 116, 46, 35, 153, 114 },
                             PhoneNumber = "999-000-1111",
                             Role = "Customer",
                             Username = "gracemiller"
@@ -571,6 +582,7 @@ namespace GroceryExpress.DAL.Migrations
                             Email = "sam.anderson@example.com",
                             FirstName = "Sam",
                             LastName = "Anderson",
+                            Password = new byte[] { 89, 110, 216, 84, 7, 228, 243, 177, 159, 33, 30, 131, 126, 175, 160, 138, 242, 155, 178, 47, 203, 134, 213, 127, 252, 50, 151, 23, 50, 27, 41, 149, 98, 174, 202, 159, 155, 70, 203, 32, 66, 229, 106, 29, 3, 126, 83, 181, 178, 249, 54, 29, 140, 245, 28, 32, 147, 132, 22, 145, 246, 50, 206, 185 },
                             PhoneNumber = "222-333-4444",
                             Role = "Customer",
                             Username = "samanderson"
