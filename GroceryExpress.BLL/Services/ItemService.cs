@@ -36,10 +36,10 @@ namespace GroceryExpress.BLL.Services
             return item;
         }
 
-        public async Task<List<Item>> GetAll(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page, int size)
+        public async Task<List<Item>> GetAll(GroceryCategory? searchCategory, string? searchBrand, string? searchName, string? sortProp, bool isDescending, int page, int size)
         {
             if (size > MaxPageSize) { size = MaxPageSize; }
-            return await _itemRepository.FindAll(searchCategory, searchBrand, sortProp, isDescending, page, size);
+            return await _itemRepository.FindAll(searchCategory, searchBrand, searchName, sortProp, isDescending, page, size);
 
         }
 

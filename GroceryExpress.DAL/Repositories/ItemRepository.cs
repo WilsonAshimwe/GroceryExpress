@@ -14,11 +14,12 @@ namespace GroceryExpress.DAL.Repositories
 
         }
 
-        public async Task<List<Item>> FindAll(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page, int size)
+        public async Task<List<Item>> FindAll(GroceryCategory? searchCategory, string? searchBrand, string? searchName, string? sortProp, bool isDescending, int page, int size)
         {
             var subQuery = _table
                 .Where(i => searchCategory == null || i.Category == searchCategory)
-                .Where(i => searchBrand == null || i.Brand == searchBrand);
+                .Where(i => searchBrand == null || i.Brand.ToLower().StartsWith(searchBrand.ToLower()))
+                .Where(i => searchName == null || i.Name.ToLower().StartsWith(searchName.ToLower()));
             if (sortProp != null)
             {
                 subQuery = isDescending
@@ -34,7 +35,7 @@ namespace GroceryExpress.DAL.Repositories
             return await _table
                 .Where(i => searchCategory == null || i.Category == searchCategory)
                 .Where(i => searchBrand == null || i.Brand == searchBrand).CountAsync();
-            
+
         }
     }
 }

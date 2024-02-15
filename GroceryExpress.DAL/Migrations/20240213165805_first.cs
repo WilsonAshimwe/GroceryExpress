@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -157,23 +156,23 @@ namespace GroceryExpress.DAL.Migrations
                 columns: new[] { "Id", "AddedDate", "Brand", "Category", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 2, 13, 11, 24, 11, 742, DateTimeKind.Local).AddTicks(6871), "Gala", "Fruits", "Fresh and juicy", "images\\galaapplejuiced.jpg", "Apple", 1.99m },
-                    { 2, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3712), "Chiquita", "Fruits", "Ripe and sweet", "images\\Chiquitabanana.jpg", "Banana", 0.99m },
-                    { 3, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3752), "Alpro", "Dairy", "Whole milk", "images\\alpromilk.jpg", "Milk", 2.49m },
-                    { 4, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3757), "Jacquet", "Bakery", "Whole wheat bread", "images\\jacquetbread.jpg", "Bread", 2.29m },
-                    { 5, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3761), "Maïski", "Meat", "Boneless skinless chicken breast", "images\\maiskichicken.jpg", "Chicken", 4.99m },
-                    { 6, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3772), "Iglo", "Vegetables", "Fresh organic spinach", "images\\iglospinach.jpg", "Spinach", 1.49m },
-                    { 7, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3775), "Alpro", "Dairy", "Low-fat yogurt", "images\\alproyogourt.jpg", "Yogurt", 1.79m },
-                    { 8, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3779), "Columbus", "Other", "Large brown eggs", "images\\columbuseggs.jpg", "Eggs", 2.99m },
-                    { 9, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3782), "Tropicana", "Beverages", "100% pure orange juice", "images\\tropicanaorangejuice.jpg", "Orange Juice", 3.49m },
-                    { 10, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3786), "Galak", "SweetFood", "Milk chocolate bar", "images\\chocolatgalak.jpg", "Chocolate", 1.29m },
-                    { 11, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3790), "Waitrose ", "Cerials", "Oat, wheat and barley flakes with mixed dried fruits, nuts and seeds", "images\\essentialfoodandnut.jpg", "Essential Fruit & Nut Muesli", 3m },
-                    { 12, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3803), "Waitrose ", "Cerials", "Cereal (34 %) and Raisin (9.5 %) Bar Half Covered with Milk Chocolate (19 %).", "images\\LN_002834_BP_11.jpg", "Cadbury Brunch Bar Raisin", 1.55m },
-                    { 13, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3866), "Waitrose ", "SweetFood", "Lemon flavoured soft bakes.", "images\\LN_895684_BP_11;jpg", "Lu Le Petit Citron Lemon Soft Bakes", 1.55m },
-                    { 14, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3871), "Flash", "CleaningProduct", "Kitchen degreaser. Removes up to 100% of grease. With plant-based ingredient (12% of total surfactant, which are subject to processing).", "images\\LN_002490_BP_11.jpg", "Flash Task Kitchen Spray Fresh Citrus800ml", 2.5m },
-                    { 15, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3874), "Nivea", "PersonalCare", "Instantly protects from 5 signs of skin irritation: burning, redness, dryness, tightness & micro cuts.", "LN_060554_BP_11.jpg", "Nivea For Men Sensitive Gel200ml", 4.25m },
-                    { 16, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3878), "Waitrose", "FrozenFoods", "Lovely frozen cod wihich is absolutely delicious.", "LN_847760_BP_11.jpg", "Waitrose Frozen Cod Fillets MSC475g", 8.50m },
-                    { 17, new DateTime(2024, 2, 13, 11, 24, 11, 746, DateTimeKind.Local).AddTicks(3881), "Iglo", "FrozenFoods", "Basa fillets dusted in a flour breadcrumb coating, with sea salt and cracked black pepper", "LN_821034_BP_11", "Young's Gastro Salt & Pepper Dusted Basa Fillets 2s310g", 4.50m }
+                    { 1, new DateTime(2024, 2, 13, 17, 58, 4, 768, DateTimeKind.Local).AddTicks(6936), "Gala", "Fruits", "Fresh and juicy", "images\\galaapplejuiced.jpg", "Apple", 1.99m },
+                    { 2, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9729), "Chiquita", "Fruits", "Ripe and sweet", "images\\Chiquitabanana.jpg", "Banana", 0.99m },
+                    { 3, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9749), "Alpro", "Dairy", "Whole milk", "images\\alpromilk.jpg", "Milk", 2.49m },
+                    { 4, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9752), "Jacquet", "Bakery", "Whole wheat bread", "images\\jacquetbread.jpg", "Bread", 2.29m },
+                    { 5, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9754), "Maïski", "Meat", "Boneless skinless chicken breast", "images\\maiskichicken.jpg", "Chicken", 4.99m },
+                    { 6, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9759), "Iglo", "Vegetables", "Fresh organic spinach", "images\\iglospinach.jpg", "Spinach", 1.49m },
+                    { 7, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9761), "Alpro", "Dairy", "Low-fat yogurt", "images\\alproyogourt.jpg", "Yogurt", 1.79m },
+                    { 8, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9763), "Columbus", "Other", "Large brown eggs", "images\\columbuseggs.jpg", "Eggs", 2.99m },
+                    { 9, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9765), "Tropicana", "Beverages", "100% pure orange juice", "images\\tropicanaorangejuice.jpg", "Orange Juice", 3.49m },
+                    { 10, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9767), "Galak", "SweetFood", "Milk chocolate bar", "images\\chocolatgalak.jpg", "Chocolate", 1.29m },
+                    { 11, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9769), "Waitrose ", "Cerials", "Oat, wheat and barley flakes with mixed dried fruits, nuts and seeds", "images\\essentialfoodandnut.jpg", "Essential Fruit & Nut Muesli", 3m },
+                    { 12, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9777), "Waitrose ", "Cerials", "Cereal (34 %) and Raisin (9.5 %) Bar Half Covered with Milk Chocolate (19 %).", "images\\LN_002834_BP_11.jpg", "Cadbury Brunch Bar Raisin", 1.55m },
+                    { 13, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9779), "Waitrose ", "SweetFood", "Lemon flavoured soft bakes.", "images\\LN_895684_BP_11.jpg", "Lu Le Petit Citron Lemon Soft Bakes", 1.55m },
+                    { 14, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9780), "Flash", "CleaningProduct", "Kitchen degreaser. Removes up to 100% of grease. With plant-based ingredient (12% of total surfactant, which are subject to processing).", "images\\LN_002490_BP_11.jpg", "Flash Task Kitchen Spray Fresh Citrus800ml", 2.5m },
+                    { 15, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9782), "Nivea", "PersonalCare", "Instantly protects from 5 signs of skin irritation: burning, redness, dryness, tightness & micro cuts.", "images\\LN_060554_BP_11.jpg", "Nivea For Men Sensitive Gel200ml", 4.25m },
+                    { 16, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9783), "Waitrose", "FrozenFoods", "Lovely frozen cod wihich is absolutely delicious.", "images\\LN_847760_BP_11.jpg", "Waitrose Frozen Cod Fillets MSC475g", 8.50m },
+                    { 17, new DateTime(2024, 2, 13, 17, 58, 4, 769, DateTimeKind.Local).AddTicks(9785), "Iglo", "FrozenFoods", "Basa fillets dusted in a flour breadcrumb coating, with sea salt and cracked black pepper", "images\\LN_821034_BP_11.jpg", "Young's Gastro Salt & Pepper Dusted Basa Fillets 2s310g", 4.50m }
                 });
 
             migrationBuilder.InsertData(

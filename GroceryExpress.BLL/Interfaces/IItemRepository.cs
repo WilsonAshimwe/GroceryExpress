@@ -8,7 +8,7 @@ namespace GroceryExpress.BLL.Interfaces
 
         Task<Item?> Find(int id);
 
-        Task<List<Item>> FindAll(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page, int size);
+        Task<List<Item>> FindAll(GroceryCategory? searchCategory, string? searchBrand, string? searchName, string? sortProp, bool isDescending, int page, int size);
 
         Task<Item> Add(Item Item);
 

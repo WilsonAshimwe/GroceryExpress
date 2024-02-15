@@ -13,16 +13,17 @@ namespace GroceryExpress.API.Controllers
     public class ItemsController(ItemService _itemService, IMapper mapper) : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetItems(GroceryCategory? searchCategory, string? searchBrand, string? sortProp, bool isDescending, int page = 1, int size = 50)
+        public async Task<IActionResult> GetItems(GroceryCategory? searchCategory, string? searchBrand, string? searchName, string? sortProp, bool isDescending, int page = 1, int size = 50)
         {
 
             //var configuration = new MapperConfiguration(cfg => cfg.CreateMap<Item, ShowItemDTO>());
 
-            var items = await _itemService.GetAll(searchCategory, searchBrand, sortProp, isDescending, page, size);
+            var items = await _itemService.GetAll(searchCategory, searchBrand, searchName, sortProp, isDescending, page, size);
             var results = mapper.Map<List<Item>, List<ShowItemDTO>>(items);
             var total = await _itemService.Count(searchCategory, searchBrand);
+            var maxPageNumber = Math.Ceiling((float)total / size);
 
-            return Ok(new IndexDTO<ShowItemDTO>(results ?? throw new Exception(), new { page, size, total }, new { searchCategory, searchBrand, sortProp, isDescending }));
+            return Ok(new IndexDTO<ShowItemDTO>(results ?? throw new Exception(), new { page, size, total, maxPageNumber }, new { searchCategory, searchBrand, searchName, sortProp, isDescending }));
 
         }
 
