@@ -7,7 +7,7 @@ namespace GroceryExpress.API.DTO.Orders
     {
         public int UserId { get; set; }
         [Required]
-        public ICollection<CreateItemOrderDTO> itemOrders { get; set; }
+        public List<CreateItemOrderDTO> itemOrders { get; set; }
 
     }
 }

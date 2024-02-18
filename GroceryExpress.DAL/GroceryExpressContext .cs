@@ -22,6 +22,8 @@ namespace GroceryExpress.DAL
 
 
         public DbSet<ItemOrder> OrderItems { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
 
         public GroceryExpressContext(DbContextOptions options) : base(options)
         {
@@ -63,6 +65,7 @@ namespace GroceryExpress.DAL
             //    );
 
             modelBuilder.Entity<ItemOrder>().HasKey(i => new { i.OrderId, i.ItemId });
+            modelBuilder.Entity<BasketItem>().HasKey(i => new { i.BasketId, i.ItemId });
 
             modelBuilder.Entity<User>().HasIndex(u => u.Username).IsUnique();
 

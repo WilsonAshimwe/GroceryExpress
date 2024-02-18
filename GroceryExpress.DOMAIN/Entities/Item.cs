@@ -1,5 +1,4 @@
 ﻿using GroceryExpress.Domain.Enums;
-using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,7 +10,7 @@ namespace GroceryExpress.DOMAIN.Entities
 
         public Item()
         {
-            ItemOrders = new HashSet<ItemOrder>();
+            ItemOrders = new List<ItemOrder>();
         }
         [Key]
         public int Id { get; set; }
@@ -31,7 +30,9 @@ namespace GroceryExpress.DOMAIN.Entities
 
         public string ImageUrl { get; set; } = null!;
 
-        public ICollection<ItemOrder> ItemOrders { get; set; }
+        public List<ItemOrder> ItemOrders { get; set; }
+
+
 
     }
 }

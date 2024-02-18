@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using GroceryExpress.API.DTO.Addresses;
+using GroceryExpress.API.DTO.Baskets;
+using GroceryExpress.API.DTO.BasketItems;
+
 using GroceryExpress.API.DTO.Items;
 using GroceryExpress.API.DTO.Orders;
 using GroceryExpress.API.DTO.Users;
@@ -18,7 +21,14 @@ namespace GroceryExpress.API.Profiles
             CreateMap<Order, OrderDTO>();
             CreateMap<ItemOrder, ShowItemOrderDTO>();
             CreateMap<Order, ShowOrderDTO>();
-            
+            CreateMap<Basket, BasketDTO>();
+            CreateMap<Basket, ShowBasketDTO>();
+            CreateMap<BasketItem, ShowBasketItemsDTO>();
+            CreateMap<BasketItem, ShowBasketItemDTO>();
+
+
+
+
 
 
         }

@@ -55,7 +55,7 @@ namespace GroceryExpress.BLL.Services
             User? user = await _userRepository.Find(id);
             if (user == null)
             {
-                throw new KeyNotFoundException($"There is not user with id {id}");
+                throw new KeyNotFoundException($"There is no user with id {id}");
             }
             return user;
         }
@@ -70,7 +70,7 @@ namespace GroceryExpress.BLL.Services
             User? user = await _userRepository.FindWithAddress(id);
             if (user == null)
             {
-                throw new KeyNotFoundException($"There is not user with id {id}");
+                throw new KeyNotFoundException($"There is no user with id {id}");
             }
             return user;
         }
@@ -79,7 +79,7 @@ namespace GroceryExpress.BLL.Services
             User? user = await _userRepository.FindWithOrders(id);
             if (user == null)
             {
-                throw new KeyNotFoundException($"There is not user with id {id}");
+                throw new KeyNotFoundException($"There is no user with id {id}");
             }
             return user;
         }
@@ -90,7 +90,7 @@ namespace GroceryExpress.BLL.Services
             User? user = await _userRepository.Find(id);
             if (user == null)
             {
-                throw new KeyNotFoundException($"There is not user with id {id}");
+                throw new KeyNotFoundException($"There is no user with id {id}");
             }
             await _userRepository.Delete(user);
 

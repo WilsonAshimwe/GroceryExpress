@@ -25,7 +25,8 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
-    options => {
+    options =>
+    {
 
         options.TokenValidationParameters = new TokenValidationParameters
         {
@@ -38,8 +39,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Signature"]))
         };
     }
-    
-    
+
+
     );
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -74,11 +75,16 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.AddScoped<IBasketItemRepository, BasketItemRepository>();
+
 
 builder.Services.AddScoped<PasswordHasher>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ItemService>();
 builder.Services.AddScoped<SecurityService>();
+builder.Services.AddScoped<BasketService>();
+builder.Services.AddScoped<BasketItemService>();
 
 
 

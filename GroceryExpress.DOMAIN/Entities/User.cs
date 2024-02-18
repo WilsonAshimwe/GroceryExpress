@@ -29,14 +29,14 @@ namespace GroceryExpress.DOMAIN.Entities
         public int AddressId { get; set; }
         public Address Address { get; set; } = null!;
 
-        public ICollection<Order> Orders { get; set; }
+        public List<Order> Orders { get; set; }
 
         [Column(TypeName = "VARCHAR(10)")]
         public RoleEnum Role { get; set; } = RoleEnum.Customer;
 
         public User()
         {
-            Orders = new HashSet<Order>();
+            Orders = new List<Order>();
         }
 
 

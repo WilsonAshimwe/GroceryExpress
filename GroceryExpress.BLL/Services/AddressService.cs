@@ -1,11 +1,5 @@
 ﻿using GroceryExpress.BLL.Interfaces;
 using GroceryExpress.DOMAIN.Entities;
-using GroceryExpress.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GroceryExpress.BLL.Services
 {
@@ -31,7 +25,7 @@ namespace GroceryExpress.BLL.Services
             Address? address = await _addressRepository.Find(id);
             if (address == null)
             {
-                throw new KeyNotFoundException($"There is not address with id {id}");
+                throw new KeyNotFoundException($"There is no address with id {id}");
             }
             return address;
         }
@@ -48,7 +42,7 @@ namespace GroceryExpress.BLL.Services
             Address? Address = await _addressRepository.Find(id);
             if (Address == null)
             {
-                throw new KeyNotFoundException($"There is not Address with id {id}");
+                throw new KeyNotFoundException($"There is no Address with id {id}");
             }
             await _addressRepository.Delete(Address);
 

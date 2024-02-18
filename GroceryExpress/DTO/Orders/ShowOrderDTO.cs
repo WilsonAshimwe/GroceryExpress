@@ -10,7 +10,7 @@ namespace GroceryExpress.API.DTO.Orders
 
         public User User { get; set; }
 
-        public ICollection<ShowItemOrderDTO> ItemOrders { get; set; }
+        public List<ShowItemOrderDTO> ItemOrders { get; set; }
 
 
         public DateTime OrderDate { get; set; }

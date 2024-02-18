@@ -93,6 +93,26 @@ namespace GroceryExpress.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Baskets",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    BasketDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Baskets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Baskets_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
@@ -108,6 +128,32 @@ namespace GroceryExpress.DAL.Migrations
                         name: "FK_Orders_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BasketItems",
+                columns: table => new
+                {
+                    BasketId = table.Column<int>(type: "int", nullable: false),
+                    ItemId = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    ItemPrice = table.Column<decimal>(type: "decimal(5,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BasketItems", x => new { x.BasketId, x.ItemId });
+                    table.ForeignKey(
+                        name: "FK_BasketItems_Baskets_BasketId",
+                        column: x => x.BasketId,
+                        principalTable: "Baskets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BasketItems_Items_ItemId",
+                        column: x => x.ItemId,
+                        principalTable: "Items",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -158,23 +204,23 @@ namespace GroceryExpress.DAL.Migrations
                 columns: new[] { "Id", "AddedDate", "Brand", "Category", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 2, 15, 13, 28, 11, 385, DateTimeKind.Local).AddTicks(1879), "Gala", "Fruits", "Fresh and juicy", "images\\galaapplejuiced.jpg", "Apple", 1.99m },
-                    { 2, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8644), "Chiquita", "Fruits", "Ripe and sweet", "images\\Chiquitabanana.jpg", "Banana", 0.99m },
-                    { 3, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8698), "Alpro", "Dairy", "Whole milk", "images\\alpromilk.jpg", "Milk", 2.49m },
-                    { 4, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8703), "Jacquet", "Bakery", "Whole wheat bread", "images\\jacquetbread.jpg", "Bread", 2.29m },
-                    { 5, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8707), "Maïski", "Meat", "Boneless skinless chicken breast", "images\\maiskichicken.jpg", "Chicken", 4.99m },
-                    { 6, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8796), "Iglo", "Vegetables", "Fresh organic spinach", "images\\iglospinach.jpg", "Spinach", 1.49m },
-                    { 7, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8801), "Alpro", "Dairy", "Low-fat yogurt", "images\\alproyogourt.jpg", "Yogurt", 1.79m },
-                    { 8, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8805), "Columbus", "Other", "Large brown eggs", "images\\columbuseggs.jpg", "Eggs", 2.99m },
-                    { 9, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8809), "Tropicana", "Beverages", "100% pure orange juice", "images\\tropicanaorangejuice.jpg", "Orange Juice", 3.49m },
-                    { 10, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8814), "Galak", "SweetFood", "Milk chocolate bar", "images\\chocolatgalak.jpg", "Chocolate", 1.29m },
-                    { 11, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8818), "Waitrose ", "Cerials", "Oat, wheat and barley flakes with mixed dried fruits, nuts and seeds", "images\\essentialfoodandnut.jpg", "Essential Fruit & Nut Muesli", 3m },
-                    { 12, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8833), "Waitrose ", "Cerials", "Cereal (34 %) and Raisin (9.5 %) Bar Half Covered with Milk Chocolate (19 %).", "images\\LN_002834_BP_11.jpg", "Cadbury Brunch Bar Raisin", 1.55m },
-                    { 13, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8837), "Waitrose ", "SweetFood", "Lemon flavoured soft bakes.", "images\\LN_895684_BP_11.jpg", "Lu Le Petit Citron Lemon Soft Bakes", 1.55m },
-                    { 14, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8841), "Flash", "CleaningProduct", "Kitchen degreaser. Removes up to 100% of grease. With plant-based ingredient (12% of total surfactant, which are subject to processing).", "images\\LN_002490_BP_11.jpg", "Flash Task Kitchen Spray Fresh Citrus800ml", 2.5m },
-                    { 15, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8844), "Nivea", "PersonalCare", "Instantly protects from 5 signs of skin irritation: burning, redness, dryness, tightness & micro cuts.", "images\\LN_060554_BP_11.jpg", "Nivea For Men Sensitive Gel200ml", 4.25m },
-                    { 16, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8848), "Waitrose", "FrozenFoods", "Lovely frozen cod wihich is absolutely delicious.", "images\\LN_847760_BP_11.jpg", "Waitrose Frozen Cod Fillets MSC475g", 8.50m },
-                    { 17, new DateTime(2024, 2, 15, 13, 28, 11, 388, DateTimeKind.Local).AddTicks(8852), "Iglo", "FrozenFoods", "Basa fillets dusted in a flour breadcrumb coating, with sea salt and cracked black pepper", "images\\LN_821034_BP_11.jpg", "Young's Gastro Salt & Pepper Dusted Basa Fillets 2s310g", 4.50m }
+                    { 1, new DateTime(2024, 2, 17, 9, 16, 9, 190, DateTimeKind.Local).AddTicks(230), "Gala", "Fruits", "Fresh and juicy", "images\\galaapplejuiced.jpg", "Apple", 1.99m },
+                    { 2, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(482), "Chiquita", "Fruits", "Ripe and sweet", "images\\Chiquitabanana.jpg", "Banana", 0.99m },
+                    { 3, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(506), "Alpro", "Dairy", "Whole milk", "images\\alpromilk.jpg", "Milk", 2.49m },
+                    { 4, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(510), "Jacquet", "Bakery", "Whole wheat bread", "images\\jacquetbread.jpg", "Bread", 2.29m },
+                    { 5, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(512), "Maïski", "Meat", "Boneless skinless chicken breast", "images\\maiskichicken.jpg", "Chicken", 4.99m },
+                    { 6, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(517), "Iglo", "Vegetables", "Fresh organic spinach", "images\\iglospinach.jpg", "Spinach", 1.49m },
+                    { 7, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(519), "Alpro", "Dairy", "Low-fat yogurt", "images\\alproyogourt.jpg", "Yogurt", 1.79m },
+                    { 8, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(521), "Columbus", "Other", "Large brown eggs", "images\\columbuseggs.jpg", "Eggs", 2.99m },
+                    { 9, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(523), "Tropicana", "Beverages", "100% pure orange juice", "images\\tropicanaorangejuice.jpg", "Orange Juice", 3.49m },
+                    { 10, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(526), "Galak", "SweetFood", "Milk chocolate bar", "images\\chocolatgalak.jpg", "Chocolate", 1.29m },
+                    { 11, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(527), "Waitrose ", "Cerials", "Oat, wheat and barley flakes with mixed dried fruits, nuts and seeds", "images\\essentialfoodandnut.jpg", "Essential Fruit & Nut Muesli", 3m },
+                    { 12, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(534), "Waitrose ", "Cerials", "Cereal (34 %) and Raisin (9.5 %) Bar Half Covered with Milk Chocolate (19 %).", "images\\LN_002834_BP_11.jpg", "Cadbury Brunch Bar Raisin", 1.55m },
+                    { 13, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(536), "Waitrose ", "SweetFood", "Lemon flavoured soft bakes.", "images\\LN_895684_BP_11.jpg", "Lu Le Petit Citron Lemon Soft Bakes", 1.55m },
+                    { 14, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(538), "Flash", "CleaningProduct", "Kitchen degreaser. Removes up to 100% of grease. With plant-based ingredient (12% of total surfactant, which are subject to processing).", "images\\LN_002490_BP_11.jpg", "Flash Task Kitchen Spray Fresh Citrus800ml", 2.5m },
+                    { 15, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(540), "Nivea", "PersonalCare", "Instantly protects from 5 signs of skin irritation: burning, redness, dryness, tightness & micro cuts.", "images\\LN_060554_BP_11.jpg", "Nivea For Men Sensitive Gel200ml", 4.25m },
+                    { 16, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(541), "Waitrose", "FrozenFoods", "Lovely frozen cod wihich is absolutely delicious.", "images\\LN_847760_BP_11.jpg", "Waitrose Frozen Cod Fillets MSC475g", 8.50m },
+                    { 17, new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(543), "Iglo", "FrozenFoods", "Basa fillets dusted in a flour breadcrumb coating, with sea salt and cracked black pepper", "images\\LN_821034_BP_11.jpg", "Young's Gastro Salt & Pepper Dusted Basa Fillets 2s310g", 4.50m }
                 });
 
             migrationBuilder.InsertData(
@@ -191,6 +237,16 @@ namespace GroceryExpress.DAL.Migrations
                     { 7, 7, new DateOnly(1995, 4, 15), "grace.miller@example.com", "Grace", "Miller", new byte[] { 216, 43, 62, 55, 208, 60, 249, 94, 186, 225, 243, 115, 45, 252, 131, 162, 186, 180, 131, 4, 224, 198, 38, 218, 202, 106, 114, 113, 241, 125, 11, 146, 41, 181, 204, 150, 213, 89, 110, 217, 244, 9, 187, 173, 95, 8, 46, 164, 241, 227, 42, 59, 128, 167, 161, 120, 132, 2, 16, 116, 46, 35, 153, 114 }, "999-000-1111", "Customer", "gracemiller" },
                     { 8, 8, new DateOnly(1978, 9, 30), "sam.anderson@example.com", "Sam", "Anderson", new byte[] { 89, 110, 216, 84, 7, 228, 243, 177, 159, 33, 30, 131, 126, 175, 160, 138, 242, 155, 178, 47, 203, 134, 213, 127, 252, 50, 151, 23, 50, 27, 41, 149, 98, 174, 202, 159, 155, 70, 203, 32, 66, 229, 106, 29, 3, 126, 83, 181, 178, 249, 54, 29, 140, 245, 28, 32, 147, 132, 22, 145, 246, 50, 206, 185 }, "222-333-4444", "Customer", "samanderson" }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BasketItems_ItemId",
+                table: "BasketItems",
+                column: "ItemId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Baskets_UserId",
+                table: "Baskets",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_ItemId",
@@ -218,10 +274,16 @@ namespace GroceryExpress.DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "BasketItems");
+
+            migrationBuilder.DropTable(
                 name: "Deliverers");
 
             migrationBuilder.DropTable(
                 name: "OrderItems");
+
+            migrationBuilder.DropTable(
+                name: "Baskets");
 
             migrationBuilder.DropTable(
                 name: "Items");

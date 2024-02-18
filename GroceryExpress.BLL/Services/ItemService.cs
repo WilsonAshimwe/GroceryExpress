@@ -31,7 +31,7 @@ namespace GroceryExpress.BLL.Services
             Item? item = await _itemRepository.Find(id);
             if (item == null)
             {
-                throw new KeyNotFoundException($"There is not item with id {id}");
+                throw new KeyNotFoundException($"There is no item with id {id}");
             }
             return item;
         }
@@ -55,7 +55,7 @@ namespace GroceryExpress.BLL.Services
             Item? Item = await _itemRepository.Find(id);
             if (Item == null)
             {
-                throw new KeyNotFoundException($"There is not Item with id {id}");
+                throw new KeyNotFoundException($"There is no Item with id {id}");
             }
             await _itemRepository.Delete(Item);
 

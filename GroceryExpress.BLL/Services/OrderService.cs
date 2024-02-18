@@ -33,7 +33,7 @@ namespace GroceryExpress.BLL.Services
             Order? order = await _orderRepository.Find(id);
             if (order == null)
             {
-                throw new KeyNotFoundException($"There is not order with id {id}");
+                throw new KeyNotFoundException($"There is no order with id {id}");
             }
             return order;
         }
