@@ -13,6 +13,7 @@ namespace GroceryExpress.API.DTO.Baskets
 
         public decimal Total { get => BasketItems.Sum(io => io.Quantity * io.ItemPrice); }
 
+       
 
         public DateTime BasketDate { get; set; }
     }

@@ -20,6 +20,16 @@ namespace GroceryExpress.API.Controllers
 
         }
 
+        [HttpPut("basketitems")]
+        public async Task<ActionResult<Basket>> Remove([FromBody] CreateBasketDTO dto)
+        {
+
+            Basket basket = await _basketService.RemoveItems(dto.UserId, dto.basketItems.Select(i => _mapper.Map<BasketItem>(i)).ToList());
+
+            return Created("", _mapper.Map<BasketDTO>(basket));
+
+        }
+
         [HttpGet]
         public async Task<ActionResult<List<Basket>>> GetBaskets()
         {

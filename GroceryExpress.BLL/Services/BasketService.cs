@@ -29,7 +29,7 @@ namespace GroceryExpress.BLL.Services
             }
             else
             {
-                basket = await this.AddBasketItems(userId, basketItems);
+                basket = await _basketRepository.AddBasketItems(userId, basketItems);
 
 
             };
@@ -37,10 +37,10 @@ namespace GroceryExpress.BLL.Services
             return basket;
 
         }
-        public async Task<Basket> AddBasketItems(int userId, List<BasketItem> basketItems)
+        public async Task<Basket> RemoveItems(int userId, List<BasketItem> basketItems)
         {
 
-            var basket = await _basketRepository.AddBasketItems(userId, basketItems);
+            var basket = await _basketRepository.RemoveBasketItems(userId, basketItems);
             if (basket == null)
             {
                 throw new KeyNotFoundException($"There is no basket for userid {userId}");

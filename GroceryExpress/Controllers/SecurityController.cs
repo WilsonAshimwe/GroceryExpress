@@ -18,7 +18,7 @@ namespace GroceryExpress.API.Controllers
             {
                 User user = await _securityService.Login(dto.Email, dto.Password);
                 string token = _jwtManager.CreateToken(user.Email, user.Id.ToString(), user.Email, user.Role);
-                return Ok(new { Token = token, Role = user.Role, displayName = user.LastName, Email = user.Email });
+                return Ok(new { Token = token, Role = user.Role, displayName = user.LastName, Email = user.Email, Id = user.Id });
             }
             catch (ValidationException)
             {

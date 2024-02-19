@@ -20,5 +20,6 @@ namespace GroceryExpress.BLL.Interfaces
         Task<Basket?> FindByUser(int userId);
 
         Task<Basket?> AddBasketItems(int userId, List<BasketItem> basketItems);
+        Task<Basket?> RemoveBasketItems(int userId, List<BasketItem> basketItems);
     }
 }

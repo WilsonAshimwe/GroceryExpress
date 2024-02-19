@@ -17,6 +17,9 @@ namespace GroceryExpress.API.DTO.Baskets
         public decimal Shipping { get => SubTotal / 10; }
         public decimal Total { get => SubTotal + (SubTotal / 10); }
 
+        public int TotalElements { get => (BasketItems.Sum(io => io.Quantity) * BasketItems.Count()); }
+
+
 
 
 

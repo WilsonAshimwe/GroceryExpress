@@ -6,11 +6,11 @@ namespace GroceryExpress.DAL.Repositories
 {
     public class BasketRepository : BaseRepository<Basket>, IBasketRepository
     {
-        private readonly GroceryExpressContext _context;
+       
 
         public BasketRepository(GroceryExpressContext context) : base(context)
         {
-            _context = context;
+          
         }
 
         public async Task<List<Basket>> FindAllWithItems()
@@ -32,7 +32,15 @@ namespace GroceryExpress.DAL.Repositories
                 for (int i = 0; i < basketItems.Count; i++)
                 {
 
-                    basket.BasketItems.Add(basketItems[i]);
+                    var item = basket.BasketItems.Where(item => item.ItemId == basketItems[i].ItemId).FirstOrDefault();
+                    if (item != null)
+                    {
+                        item.Quantity += 1;
+                        //basketItems[i].Quantity = basketItems[i].Quantity +1;    
+                    }
+                    else { basket.BasketItems.Add(basketItems[i]); }
+
+                   
                 }
 
                 await _context.SaveChangesAsync();
@@ -41,6 +49,32 @@ namespace GroceryExpress.DAL.Repositories
             return basket;
 
         }
+        public async Task<Basket?> RemoveBasketItems(int userId, List<BasketItem> basketItems)
+        {
+            var basket = await _table.Include(o => o.BasketItems).ThenInclude(io => io.Item).Where(b => b.UserId == userId).FirstOrDefaultAsync();
+
+            if (basket != null)
+            {
+                for (int i = 0; i < basketItems.Count; i++)
+                {
+
+                    var item = basket.BasketItems.Where(item => item.ItemId == basketItems[i].ItemId).FirstOrDefault();
+                    if (item != null)
+                    {
+                        item.Quantity -= 1;
+                        //basketItems[i].Quantity = basketItems[i].Quantity +1;
+                        if(item.Quantity == 0) { basket.BasketItems.Remove(item); }
+                    }
+                   
+                }
+
+                await _context.SaveChangesAsync();
+            }
+
+            return basket;
+
+        }
+
 
         public Task DeleteItem(int id)
         {
