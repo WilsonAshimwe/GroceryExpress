@@ -20,6 +20,24 @@ namespace GroceryExpress.API.Controllers
 
         }
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _basketService.Delete(id);
+                return NoContent();
+
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+
+            }
+
+
+        }
+
         [HttpPut("basketitems")]
         public async Task<ActionResult<Basket>> Remove([FromBody] CreateBasketDTO dto)
         {
@@ -40,10 +58,10 @@ namespace GroceryExpress.API.Controllers
         }
 
         [HttpGet("user")]
-        public async Task<ActionResult<Basket>> GetUserBasket([FromQuery] int id)
+        public async Task<ActionResult<Basket>> GetUserBasket([FromQuery] int userId)
         {
 
-            var basket = await _basketService.FindByUser(id);
+            var basket = await _basketService.FindByUser(userId);
             return Ok(_mapper.Map<ShowBasketDTO>(basket));
 
         }

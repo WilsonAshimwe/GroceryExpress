@@ -40,11 +40,11 @@ namespace GroceryExpress.API.Controllers
 
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete([FromQuery] int basketId, int itemId)
         {
             try
             {
-                await _basketItemService.Delete(id);
+                await _basketItemService.Delete(basketId, itemId);
                 return NoContent();
 
             }

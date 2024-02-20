@@ -25,6 +25,7 @@ namespace GroceryExpress.API.Profiles
             CreateMap<Basket, ShowBasketDTO>();
             CreateMap<BasketItem, ShowBasketItemsDTO>();
             CreateMap<BasketItem, ShowBasketItemDTO>();
+            CreateMap<Address, ShowAddressDTO>();
 
 
 

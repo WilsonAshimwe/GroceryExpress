@@ -2,11 +2,7 @@
 using GroceryExpress.API.DTO.Orders;
 using GroceryExpress.BLL.Services;
 using GroceryExpress.DOMAIN.Entities;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration.UserSecrets;
-using System.Security.Claims;
 
 namespace GroceryExpress.API.Controllers
 {
@@ -17,7 +13,7 @@ namespace GroceryExpress.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> Add([FromBody] CreateOrderDTO dto)
         {
-         
+
             Order order = await _orderService.Add(dto.UserId, dto.itemOrders.Select(i => _mapper.Map<ItemOrder>(i)).ToList());
 
             return Created("", _mapper.Map<OrderDTO>(order));
@@ -31,22 +27,31 @@ namespace GroceryExpress.API.Controllers
             var orders = await _orderService.GetAll();
             return Ok(_mapper.Map<List<ShowOrderDTO>>(orders));
 
-        }        
+        }
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> Get(int id)
         {
             try
             {
-            var order = await _orderService.Get(id);
-            return Ok(_mapper.Map<ShowOrderDTO>(order));
+                var order = await _orderService.Get(id);
+                return Ok(_mapper.Map<ShowOrderDTO>(order));
 
             }
             catch (KeyNotFoundException ex)
             {
                 return BadRequest();
-                
+
             }
 
+
+        }
+
+        [HttpGet("user")]
+        public async Task<ActionResult<Order>> GetUserOrder([FromQuery] int userId)
+        {
+
+            var order = await _orderService.FindByUser(userId);
+            return Ok(_mapper.Map<ShowOrderDTO>(order));
 
         }
     }

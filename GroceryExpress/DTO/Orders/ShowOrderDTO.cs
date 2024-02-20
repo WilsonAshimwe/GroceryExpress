@@ -1,6 +1,4 @@
-﻿using GroceryExpress.DOMAIN.Entities;
-
-namespace GroceryExpress.API.DTO.Orders
+﻿namespace GroceryExpress.API.DTO.Orders
 {
     public class ShowOrderDTO
     {
@@ -8,11 +6,21 @@ namespace GroceryExpress.API.DTO.Orders
 
         public int UserId { get; set; }
 
-        public User User { get; set; }
 
         public List<ShowItemOrderDTO> ItemOrders { get; set; }
 
 
-        public DateTime OrderDate { get; set; }
+        public decimal SubTotal { get => ItemOrders.Sum(io => io.Quantity * io.ItemPrice); }
+        public decimal Shipping { get => SubTotal / 10; }
+        public decimal Total { get => SubTotal + (SubTotal / 10); }
+
+        public int TotalElements { get => (ItemOrders.Sum(io => io.Quantity)); }
+
+
+
+
+
+
+        public DateTime BasketDate { get; set; }
     }
 }

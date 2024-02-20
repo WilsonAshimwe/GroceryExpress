@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GroceryExpress.API.Controllers
 {
-    [Route("api/user")]
+    [Route("api/users")]
     [ApiController]
     public class UsersController(UserService _userService, IMapper mapper) : ControllerBase
     {
@@ -29,7 +29,7 @@ namespace GroceryExpress.API.Controllers
             User user = await _userService.Add(userDTO.FirstName,
                                              userDTO.LastName,
                                              userDTO.Username,
-                                             userDTO.Email, 
+                                             userDTO.Email,
                                              userDTO.Password,
                                              userDTO.PhoneNumber,
                                              userDTO.BirthDate,
@@ -44,9 +44,9 @@ namespace GroceryExpress.API.Controllers
             return Ok(mapper.Map<ShowUserDTO>(user));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("user")]
         // [Authorize]
-        public async Task<ActionResult<User?>> Get([FromRoute] int id, bool includeAddress)
+        public async Task<ActionResult<User?>> Get([FromQuery] int id, bool includeAddress)
         {
             try
             {

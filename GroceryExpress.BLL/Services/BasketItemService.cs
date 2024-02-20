@@ -19,15 +19,15 @@ namespace GroceryExpress.BLL.Services
                 });
 
         }
-        public async Task<BasketItem> Get(int id)
+        public async Task<BasketItem> Get(int basketId, int itemId)
         {
 
-            BasketItem? basketitem = await _basketitemRepository.Find(id);
-            if (basketitem == null)
+            BasketItem? basketItem = await _basketitemRepository.Find(basketId, itemId);
+            if (basketItem == null)
             {
-                throw new KeyNotFoundException($"There is no basketitem with id {id}");
+                throw new KeyNotFoundException($"There is no basketitem with basketId {basketId} and itemId {itemId}");
             }
-            return basketitem;
+            return basketItem;
         }
 
         public async Task<List<BasketItem>> GetAll()
@@ -36,33 +36,33 @@ namespace GroceryExpress.BLL.Services
 
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(int basketId, int itemId)
         {
 
-            BasketItem? BasketItem = await _basketitemRepository.Find(id);
-            if (BasketItem == null)
+            BasketItem? basketItem = await _basketitemRepository.Find(basketId, itemId);
+            if (basketItem == null)
             {
-                throw new KeyNotFoundException($"There is no BasketItem with id {id}");
+                throw new KeyNotFoundException($"There is no basketitem with basketId {basketId} and itemId {itemId}");
             }
-            await _basketitemRepository.Delete(BasketItem);
+            await _basketitemRepository.Delete(basketItem);
 
         }
 
         public async Task<BasketItem> Update(int id, int basketId, int itemId, int quantity, decimal itemPrice)
         {
 
-            BasketItem? basketitem = await _basketitemRepository.Find(id);
-            if (basketitem is null)
+            BasketItem? basketItem = await _basketitemRepository.Find(basketId, itemId);
+            if (basketItem == null)
             {
-                throw new KeyNotFoundException($"the basketitem with {id} cannot be found");
-            };
+                throw new KeyNotFoundException($"There is no basketitem with basketId {basketId} and itemId {itemId}");
+            }
 
-            basketitem.BasketId = basketId;
-            basketitem.ItemId = itemId;
-            basketitem.Quantity = quantity;
-            basketitem.ItemPrice = itemPrice;
+            basketItem.BasketId = basketId;
+            basketItem.ItemId = itemId;
+            basketItem.Quantity = quantity;
+            basketItem.ItemPrice = itemPrice;
 
-            return await _basketitemRepository.Update(basketitem);
+            return await _basketitemRepository.Update(basketItem);
         }
 
     }

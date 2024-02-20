@@ -50,6 +50,20 @@ namespace GroceryExpress.BLL.Services
 
         }
 
+        public async Task Delete(int id)
+        {
+
+            Basket? basket = await _basketRepository.Find(id);
+            if (basket == null)
+            {
+                throw new KeyNotFoundException($"There is no basket with id {id}");
+            }
+            await _basketRepository.Delete(basket);
+
+
+
+        }
+
 
 
 

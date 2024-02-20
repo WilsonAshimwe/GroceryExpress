@@ -3,7 +3,7 @@ using GroceryExpress.DOMAIN.Entities;
 
 namespace GroceryExpress.DAL.Seeders
 {
-    public static class UserSeed 
+    public static class UserSeed
     {
         // Create a list of 25 users
         public static List<User> users = new List<User>

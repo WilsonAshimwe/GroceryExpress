@@ -4,7 +4,7 @@ namespace GroceryExpress.BLL.Interfaces
 {
     public interface IBasketItemRepository
     {
-        Task<BasketItem?> Find(int id);
+        Task<BasketItem?> Find(int basketId, int ItemId);
         Task<List<BasketItem>> FindAll();
 
         Task<BasketItem> Add(BasketItem basketItem);
