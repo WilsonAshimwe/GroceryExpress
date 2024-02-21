@@ -16,7 +16,7 @@ namespace GroceryExpress.API.Controllers
 
             Order order = await _orderService.Add(dto.UserId, dto.itemOrders.Select(i => _mapper.Map<ItemOrder>(i)).ToList());
 
-            return Created("", _mapper.Map<OrderDTO>(order));
+            return Created("", _mapper.Map<ShowOrderDTO>(order));
 
         }
 
