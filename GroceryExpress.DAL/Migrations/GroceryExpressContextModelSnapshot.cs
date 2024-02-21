@@ -240,7 +240,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 190, DateTimeKind.Local).AddTicks(230),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 320, DateTimeKind.Local).AddTicks(6618),
                             Brand = "Gala",
                             Category = "Fruits",
                             Description = "Fresh and juicy",
@@ -251,7 +251,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 2,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(482),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7316),
                             Brand = "Chiquita",
                             Category = "Fruits",
                             Description = "Ripe and sweet",
@@ -262,7 +262,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 3,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(506),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7334),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Whole milk",
@@ -273,7 +273,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 4,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(510),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7338),
                             Brand = "Jacquet",
                             Category = "Bakery",
                             Description = "Whole wheat bread",
@@ -284,7 +284,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 5,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(512),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7339),
                             Brand = "Maïski",
                             Category = "Meat",
                             Description = "Boneless skinless chicken breast",
@@ -295,7 +295,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 6,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(517),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7345),
                             Brand = "Iglo",
                             Category = "Vegetables",
                             Description = "Fresh organic spinach",
@@ -306,7 +306,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 7,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(519),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7347),
                             Brand = "Alpro",
                             Category = "Dairy",
                             Description = "Low-fat yogurt",
@@ -317,7 +317,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 8,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(521),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7349),
                             Brand = "Columbus",
                             Category = "Other",
                             Description = "Large brown eggs",
@@ -328,7 +328,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 9,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(523),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7351),
                             Brand = "Tropicana",
                             Category = "Beverages",
                             Description = "100% pure orange juice",
@@ -339,7 +339,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 10,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(526),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7389),
                             Brand = "Galak",
                             Category = "SweetFood",
                             Description = "Milk chocolate bar",
@@ -350,7 +350,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 11,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(527),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7392),
                             Brand = "Waitrose ",
                             Category = "Cerials",
                             Description = "Oat, wheat and barley flakes with mixed dried fruits, nuts and seeds",
@@ -361,7 +361,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 12,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(534),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7399),
                             Brand = "Waitrose ",
                             Category = "Cerials",
                             Description = "Cereal (34 %) and Raisin (9.5 %) Bar Half Covered with Milk Chocolate (19 %).",
@@ -372,7 +372,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 13,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(536),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7401),
                             Brand = "Waitrose ",
                             Category = "SweetFood",
                             Description = "Lemon flavoured soft bakes.",
@@ -383,7 +383,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 14,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(538),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7403),
                             Brand = "Flash",
                             Category = "CleaningProduct",
                             Description = "Kitchen degreaser. Removes up to 100% of grease. With plant-based ingredient (12% of total surfactant, which are subject to processing).",
@@ -394,7 +394,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 15,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(540),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7406),
                             Brand = "Nivea",
                             Category = "PersonalCare",
                             Description = "Instantly protects from 5 signs of skin irritation: burning, redness, dryness, tightness & micro cuts.",
@@ -405,7 +405,7 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 16,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(541),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7409),
                             Brand = "Waitrose",
                             Category = "FrozenFoods",
                             Description = "Lovely frozen cod wihich is absolutely delicious.",
@@ -416,13 +416,35 @@ namespace GroceryExpress.DAL.Migrations
                         new
                         {
                             Id = 17,
-                            AddedDate = new DateTime(2024, 2, 17, 9, 16, 9, 191, DateTimeKind.Local).AddTicks(543),
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7411),
                             Brand = "Iglo",
                             Category = "FrozenFoods",
                             Description = "Basa fillets dusted in a flour breadcrumb coating, with sea salt and cracked black pepper",
                             ImageUrl = "images\\LN_821034_BP_11.jpg",
                             Name = "Young's Gastro Salt & Pepper Dusted Basa Fillets 2s310g",
                             Price = 4.50m
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7414),
+                            Brand = "Tesco",
+                            Category = "CannedGoods",
+                            Description = "Chopped tomatoes in tomato juice.",
+                            ImageUrl = "images\\grownhastesttomato.jpg",
+                            Name = "Grower's Harvest Chopped Tomatoes 400G",
+                            Price = 0.50m
+                        },
+                        new
+                        {
+                            Id = 19,
+                            AddedDate = new DateTime(2024, 2, 21, 17, 38, 5, 321, DateTimeKind.Local).AddTicks(7415),
+                            Brand = "Apojo",
+                            Category = "Beverages",
+                            Description = "PROSECCO DENOMINAZIONE D'ORIGINE CONTROLLATA BRUT PRODUCE OF ITALY",
+                            ImageUrl = "images\\processo.jpg",
+                            Name = "Finest Prosecco Doc 75Cl",
+                            Price = 8.50m
                         });
                 });
 

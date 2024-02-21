@@ -1,7 +1,5 @@
 ﻿using GroceryExpress.Domain.Enums;
 using GroceryExpress.DOMAIN.Entities;
-using System.Text;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace GroceryExpress.DAL.Seeders
 {
@@ -28,6 +26,8 @@ namespace GroceryExpress.DAL.Seeders
             new Item { Id = 15, Name = "Nivea For Men Sensitive Gel200ml", Description = "Instantly protects from 5 signs of skin irritation: burning, redness, dryness, tightness & micro cuts.", Price = 4.25m, Brand="Nivea",  Category = GroceryCategory.PersonalCare, ImageUrl = "images\\LN_060554_BP_11.jpg" },
             new Item { Id = 16, Name = "Waitrose Frozen Cod Fillets MSC475g", Description = "Lovely frozen cod wihich is absolutely delicious.", Price = 8.50m, Brand="Waitrose",  Category = GroceryCategory.FrozenFoods, ImageUrl = "images\\LN_847760_BP_11.jpg" },
             new Item { Id = 17, Name = "Young's Gastro Salt & Pepper Dusted Basa Fillets 2s310g", Description = "Basa fillets dusted in a flour breadcrumb coating, with sea salt and cracked black pepper", Price = 4.50m, Brand="Iglo",  Category = GroceryCategory.FrozenFoods, ImageUrl = "images\\LN_821034_BP_11.jpg" },
+            new Item { Id = 18, Name = "Grower's Harvest Chopped Tomatoes 400G", Description = "Chopped tomatoes in tomato juice.", Price = 0.50m, Brand="Tesco",  Category = GroceryCategory.CannedGoods, ImageUrl = "images\\grownhastesttomato.jpg" },
+            new Item { Id = 19, Name = "Finest Prosecco Doc 75Cl", Description = "PROSECCO DENOMINAZIONE D'ORIGINE CONTROLLATA BRUT PRODUCE OF ITALY", Price = 8.50m, Brand="Apojo",  Category = GroceryCategory.Beverages, ImageUrl = "images\\processo.jpg" },
         };
     }
 }
