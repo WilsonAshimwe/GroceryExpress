@@ -15,7 +15,7 @@ namespace GroceryExpress.API.DTO.Users
         public string Username { get; set; } = null!;
         [MaxLength(50), MinLength(12), Required, EmailAddress]
         public string Email { get; set; } = null!;
-        [Required, RegularExpression(@"^+32\d{8}$")]
+        [Required, MaxLength(10), MinLength(8)]
         public string PhoneNumber { get; set; } = null!;
 
         [MaxLength(50), MinLength(2), Required]
